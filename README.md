@@ -7,3 +7,4 @@ Web Application for UI UX Class: Fall of 2024.
 
 ## Running
 1. `npm run dev`
+2. Visit `http://localhost:5173/` in browser.

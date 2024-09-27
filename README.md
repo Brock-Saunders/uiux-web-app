@@ -1,6 +1,9 @@
 # uiux-web-app
 Web Application for UI UX Class: Fall of 2024.
 
+## Prequisites
+[Node.js](https://nodejs.org/en/download/package-manager)
+
 ## Setup
 1. `cd app`
 2. `npm install --save`

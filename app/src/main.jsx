@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./i18n.js";
 
 import "./index.css";
+import '@fontsource/inter';
 
 import Home from "./pages/Home";
 import About from "./pages/About";

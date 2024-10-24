@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hoverable {
+  @apply hover:opacity-50 cursor-pointer;
+}

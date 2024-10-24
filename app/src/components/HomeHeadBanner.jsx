@@ -10,7 +10,7 @@ export default function HomeHeadBanner() {
           </div>
           <div className="absolute inset-0 flex items-center w-1/2 -translate-y-12">
             <div className="text-6xl font-serif text-gray-700">
-              Uphold truth for justice with <a className="text-gold">Laasel</a>{" "}
+              Uphold Truth for Justice with <a className="text-gold">Laasel</a>{" "}
               Law Firm
             </div>
           </div>

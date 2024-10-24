@@ -2,7 +2,7 @@ import logo_white from "../assets/logo-header-white.png";
 
 export default function Footer() {
   return (
-    <div className="flex w-full bg-crimson text-white py-10">
+    <div className="flex w-full bg-crimson text-white py-20">
       <div className="max-w-7xl w-full mx-auto">
         <div className="flex justify-center">
           <img className="w-48" src={logo_white} />
@@ -50,8 +50,8 @@ export default function Footer() {
 function FooterColumn({ title, children }) {
   return (
     <div className="flex flex-col">
-      <div className="font-serif text-lg mb-2">{title}</div>
-      <div className="space-y-1">
+      <div className="font-serif text-xl mb-2">{title}</div>
+      <div className="space-y-1 pl-[3px] text-sm">
         {children.map((child, index) => (
           <p key={index} className="hoverable">
             {child}

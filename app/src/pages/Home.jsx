@@ -13,10 +13,10 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar bgColor="bg-gradient-to-b from-neutral-200 to-beige" />
+      <Navbar bgColor="bg-gradient-to-b from-neutral-200 to-beige shadow-none" />
       <HomeHeadBanner />
       <HomeLawyerProfile />
-      {/* <p>{t("welcome")}</p> */}
+      {/* HERE IS AN EXAMPLE OF USING TRANSLATION <p>{t("welcome")}</p> */}
       <GetStartedBanner />
       <ClientTestimonials />
       <Footer />

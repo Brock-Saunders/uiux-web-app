@@ -6,27 +6,27 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./i18n.js";
 
 import "./index.css";
-import '@fontsource/inter';
+import "@fontsource/inter";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Attorneys from "./pages/Attorneys.jsx";
-import Faqs from "./pages/Faqs.jsx";  
+import Faqs from "./pages/Faqs.jsx";
 import Resources from "./pages/Resources.jsx";
 import { I18nextProvider } from "react-i18next";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/About", element: <About /> },
+  { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
-  {path: "/Attorneys", element: <Attorneys />},
-  {path: "/Faqs", element: <Faqs />},
-  {path: "/Resources", element: <Resources />},
+  { path: "/attorneys", element: <Attorneys /> },
+  { path: "/faqs", element: <Faqs /> },
+  { path: "/resources", element: <Resources /> },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>
 );

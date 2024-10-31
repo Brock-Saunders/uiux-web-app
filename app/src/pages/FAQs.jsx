@@ -1,7 +1,10 @@
+import SubpageHeader from "../components/SubpageHeader";
+
 export default function Faqs() {
-    return (
-      <h1 className="text-3xl font-bold underline">
-        Faqs
-      </h1>
-    )
-  }
+  return (
+    <SubpageHeader
+      title="FAQs"
+      description="Sint reprehenderit cillum duis duis esse exercitation consequat. Esse deserunt culpa nisi dolor minim ipsum veniam pariatur. Elit aliqua cupidatat sit Lorem. Magna dolor ipsum voluptate voluptate voluptate ad eu reprehenderit. Est elit amet nulla esse velit do labore proident ea commodo qui voluptate enim irure. Amet adipisicing officia fugiat nisi fugiat cillum."
+    />
+  );
+}

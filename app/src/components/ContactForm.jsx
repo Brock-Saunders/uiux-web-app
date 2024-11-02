@@ -1,10 +1,10 @@
 import { Textarea, Input, Button } from "@mui/joy";
-import MapChart from "./MapChart";
+import office from "../assets/office.png";
 
 export default function ContactForm() {
   return (
-    <div className="w-full bg-beige">
-      <div className="grid grid-cols-5 w-full max-w-7xl py-32 px-16 gap-x-5">
+    <div className="w-screen bg-beige">
+      <div className="grid grid-cols-5 w-full max-w-8xl py-32 px-16 gap-x-16">
         <div className="col-span-3">
           <div className="text-4xl font-serif mb-10">Get In Touch</div>
           <div className="space-y-7">
@@ -37,9 +37,15 @@ export default function ContactForm() {
             </div>
           </div>
         </div>
-        <div className="w-full bg-red-200 w-full">
-          <div>
-            <MapChart />
+        <div className="col-span-2">
+          <div className="mt-10">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.985417462002!2d-81.40153592458141!3d28.449855975764944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77c4cf2e81bd9%3A0x29350534ea331066!2s1650%20Sand%20Lake%20Rd%20suite%20114-a%2C%20Orlando%2C%20FL%2032809!5e0!3m2!1sen!2sus!4v1730550699892!5m2!1sen!2sus"
+              className="w-full h-96 shadow-lg rounded-lg"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>

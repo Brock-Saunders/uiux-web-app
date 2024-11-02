@@ -3,7 +3,7 @@ import office from "../assets/office.png";
 
 export default function ContactForm() {
   return (
-    <div className="w-screen bg-beige">
+    <div className="w-screen bg-beige text-gray-700">
       <div className="grid grid-cols-5 w-full max-w-8xl py-32 px-16 gap-x-16">
         <div className="col-span-3">
           <div className="text-4xl font-serif mb-10">Get In Touch</div>

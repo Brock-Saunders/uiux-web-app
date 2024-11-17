@@ -11,7 +11,28 @@ export default function ResourcesPublic() {
         <div className="ml-16 mt-16 mb-12 space-y-10">
           <ListRow
             question="Local Religous Communities"
-            anwser="Aute laborum ut laborum reprehenderit veniam pariatur qui consequat sunt. Id ut laborum enim sint anim officia minim est. Enim velit elit reprehenderit excepteur proident nisi ex reprehenderit aute. Nostrud proident cupidatat incididunt sunt sit incididunt velit nisi dolore consectetur veniam ea irure. Sunt commodo occaecat exercitation consequat eiusmod mollit. Ad nostrud commodo sunt enim. Officia labore consequat velit est Lorem."
+            anwser={
+            <>
+            Mosques:
+            <br />
+            <br />
+            Islamic Society of Central Florida:&nbsp;
+            <a href="https://www.iscf.org" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-700 hover:underline">
+              www.iscf.org
+            </a>
+            <br />
+            Al-Bir Educational Center:&nbsp;
+            <a href="https://www.albircenter.org" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-700 hover:underline">
+              www.albircenter.org
+            </a>
+            <br />
+            American Muslim Community Centers:&nbsp;
+            <a href="https://www.amccenters.org" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-700 hover:underline">
+              www.amccenters.org
+            </a>
+            <br />
+            </>
+            }
           />
           <ListRow
             question="K-12 Education & Child Care"

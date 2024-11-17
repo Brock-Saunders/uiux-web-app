@@ -16,20 +16,25 @@ export default function AboutCompany() {
         </div>
         <div className="mr-24 ml-24 mt-14 ml-auto text-justify space-y-5 w-full max-w-4xl">
           <p>
-            Est consectetur exercitation quis esse reprehenderit qui ea
-            cupidatat enim ea nulla labore. Laboris eu consectetur qui nostrud
-            veniam id do anim exercitation occaecat non ullamco labore
-            exercitation. Tempor velit occaecat aliquip voluptate aliquip ad
-            veniam commodo id duis eu. Anim commodo ullamco non aliqua labore do
-            tempor mollit qui do enim nisi.
+            At Laassel Law, we are committed to approaching each case with 
+            intellectual rigor and creative thinking in order to achieve the 
+            best possible results for our clients. Our lawyers have the knowledge 
+            and skills to solve our clients’ most difficult problems, whether 
+            through negotiation, motion practice, or trial.
           </p>
           <p>
-            Exercitation tempor sit dolore consequat. Sunt ullamco magna ullamco
-            minim do elit sint et officia quis exercitation dolor quis. Magna
-            consequat anim officia occaecat qui nisi labore in deserunt ea
-            cillum nulla culpa aliqua. Nisi veniam incididunt amet nostrud velit
-            ut velit ut. Minim reprehenderit quis exercitation nostrud sunt
-            reprehenderit magna fugiat fugiat. Ullamco cillum fugiat ex fugiat.
+            Our lawyers and staff are united not only by our enthusiasm and 
+            passion for the law but also by a relentless dedication to our clients. 
+            For us, it is not merely about the facts. It is about personal attention
+            – to our clients and their story. We believe in personally connecting 
+            with our clients as individuals and determining why and what they need 
+            from our firm.
+          </p>
+          <p>
+            Laassel Law is dedicated to serving the needs of individuals in the 
+            Orlando area and throughout the State of Florida. If you are in need 
+            of legal assistance, we invite you to call us at (407) 792-3953 for a 
+            free case evaluation.
           </p>
         </div>
       </div>

@@ -19,20 +19,17 @@ export default function HomeLawyerProfile() {
         </div>
         <div className="mr-24 ml-24 mt-24 ml-auto text-justify space-y-5">
           <p>
-            Est consectetur exercitation quis esse reprehenderit qui ea
-            cupidatat enim ea nulla labore. Laboris eu consectetur qui nostrud
-            veniam id do anim exercitation occaecat non ullamco labore
-            exercitation. Tempor velit occaecat aliquip voluptate aliquip ad
-            veniam commodo id duis eu. Anim commodo ullamco non aliqua labore do
-            tempor mollit qui do enim nisi.
+            In need of a Lawyer for Personal Injury? An Orlando personal injury 
+            attorney can represent you in any situation where you have been hurt 
+            due to the negligence or wrongdoing of another individual, a company, 
+            or even a government employee or agency.
           </p>
           <p>
-            Exercitation tempor sit dolore consequat. Sunt ullamco magna ullamco
-            minim do elit sint et officia quis exercitation dolor quis. Magna
-            consequat anim officia occaecat qui nisi labore in deserunt ea
-            cillum nulla culpa aliqua. Nisi veniam incididunt amet nostrud velit
-            ut velit ut. Minim reprehenderit quis exercitation nostrud sunt
-            reprehenderit magna fugiat fugiat. Ullamco cillum fugiat ex fugiat.
+            Are you an immigrant that needs help adjsuting to a new area? Lassell 
+            Law offers clients help with green cards, visa, deportation issues and 
+            more. We have worked hard on a number of immigration cases with the 
+            primary goal of keeping families together. We understand immigration 
+            laws and the circumstances that may be affecting your family.
           </p>
         </div>
       </div>

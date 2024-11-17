@@ -16,12 +16,14 @@ export default function ClientTestimonials() {
           </div>
           <div className="my-auto col-span-5 max-w-xl mx-auto">
             <p className="leading-7">
-              Labore anim in eu cillum cillum ex aliqua. Labore pariatur enim
-              cillum cupidatat dolore irure est. Incididunt cupidatat cupidatat
-              ipsum eiusmod in esse consequat amet minim. Anim nisi quis
-              pariatur culpa consectetur consectetur duis esse proident anim
-              nulla dolor commodo. Commodo tempor reprehenderit exercitation qui
-              velit dolore tempor sit.
+            When no one would take my case, she did, and stayed the course 
+            to the finish. At one point the case looked dead, and again, she 
+            put in another try, and it was then settled! Had it not been for 
+            her diligence, things would have been definitely different. I 
+            recommend Amal to anyone needing an attorney, who will stay true 
+            to the end, and will do it with kindness and efficiency. She was 
+            amazingly thorough and organized. Call Amal if you need someone to 
+            do what needs to be done, in an efficient way.
             </p>
             <div className="flex justify-end mt-10">- John Doe</div>
           </div>

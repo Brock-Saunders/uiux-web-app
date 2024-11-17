@@ -11,12 +11,11 @@ export default function AttorneysProfile() {
           <div className="text-4xl font-serif">Amal Laassel</div>
           <div className="font-serif text-xl mt-3 mb-7">Attorney</div>
           <div>
-            Ad deserunt aliquip proident cupidatat magna tempor laborum est
-            laboris id aliqua. Deserunt eu laboris minim sunt. Tempor commodo
-            deserunt pariatur deserunt mollit magna exercitation. Commodo
-            cupidatat eu ea aute irure cupidatat ullamco laboris velit duis ad
-            mollit dolore. Enim est ipsum voluptate aliqua magna et enim irure
-            enim proident eiusmod eiusmod in.
+            Amal hails from Marrakesh, Morocco, where she lived until 
+            her teenage years. At 16, Amal immigrated to the United States 
+            as part of an international student exchange program. Amal 
+            first moved to El Paso, Texas, where she lived with an American 
+            host family until she graduated from high school.
           </div>
           <div className="flex space-x-12 mt-7">
             <div className="font-serif">
@@ -38,20 +37,91 @@ export default function AttorneysProfile() {
         <div className="grid grid-cols-2">
           <Quad
             title="Education"
-            description="Ut eiusmod ea id ex. Non sint elit enim ea. Nulla labore quis elit sit consectetur excepteur sunt ipsum commodo quis aliquip anim. Laboris cupidatat magna consequat ea irure mollit reprehenderit ad quis enim. Non adipisicing nulla culpa excepteur est tempor anim qui nulla consequat."
+            description={
+            <>
+            After graduating from high school, Amal relocated 
+            to Orlando to attend the University of Central Florida. Amal 
+            earned her B.A. in Political Science from UCF in 2004. 
+            <br />
+            <br />
+            While attending UCF, Amal had the opportunity to intern at 
+            the Legal Aid Society of the Orange County Bar Association. 
+            It was during this time that she realized how many people were 
+            denied access to the legal system solely because of a lack of 
+            funds. It seemed unjust. The playing field was not level. It was 
+            this experience that reinforced Amal’s existing desire to attend 
+            law school.
+            <br />
+            <br />
+            Amal attended law school at the University of Florida and earned her Juris Doctor in 2007. After graduating from UF Law, Amal joined a mid-size Personal Injury law firm in Ocala, Florida, where she had the unique opportunity to work alongside one of Florida’s first Board Certified Civil Trial lawyers. That mentoring opportunity provided her invaluable courtroom experience and furthered the development of her legal skills.
+            </>
+            }
           />
           <Quad
             title="Legal Experience"
-            description="Aliqua velit ea adipisicing id excepteur qui. Do do qui consequat velit sunt tempor. Sint enim officia pariatur qui nisi laborum reprehenderit culpa ipsum est. Laboris adipisicing ea irure ex sint sint dolor do minim eiusmod irure fugiat fugiat. Cillum sit occaecat deserunt ullamco consequat."
+            description={
+            <>
+            After graduating from UF Law, Amal joined a mid-size Personal 
+            Injury law firm in Ocala, Florida, where she had the unique 
+            opportunity to work alongside one of Florida’s first Board Certified 
+            Civil Trial lawyers. That mentoring opportunity provided her invaluable 
+            courtroom experience and furthered the development of her legal skills.
+            <br />
+            <br />
+            In 2009, Amal moved back to Orlando and joined one of the largest 
+            insurance defense firms in the country. While there, Amal handled 
+            complex premises liability, personal injury, and general liability 
+            actions on behalf of Fortune 500 Companies and large insurance carriers, 
+            including the largest retailer in the world. In 2013, Amal was made a 
+            Partner at the firm. She was the youngest attorney to ever make Partner.
+            <br />
+            <br />
+            In 2014, after spending years defending large corporations and insurance 
+            companies, Amal’s professional experience and internal desire to help 
+            people were in serious conflict. She decided to make a long overdue 
+            change and became a plaintiff's attorney, which allowed her to align 
+            her career goals and personal values.
+            </>
+            }
           />
           <Quad
             title="Recognition"
-            description="Quis commodo sunt enim veniam exercitation dolor enim. Aliqua do cillum fugiat tempor non laborum. Elit esse qui fugiat laborum culpa culpa consectetur ex consectetur officia nulla. Et sunt dolore esse quis pariatur deserunt ad officia ex laborum reprehenderit irure culpa."
-          />
+            description={
+            <>
+            Amal has consistently been named as Florida’s Legal Elite Up and 
+            Comers by Florida Trend magazine. Florida Legal Elite represents 
+            the top 2% of attorneys practicing in the State of Florida. Attorneys 
+            recognized through this award exemplify a standard of excellence in 
+            their profession.
+            <br />
+            <br />
+            Amal has also been selected as a “Women Who Mean Business” nominee 
+            by the Orlando Business Journal.
+            <br />
+            <br />
+            Very recently, Amal was selected by her peers as No. 1 Orlando 
+            Legal Elite in her category and featured in Orlando Style Magazine.
+            </>
+            }/>
           <Quad
             title="Community"
-            description="Officia Lorem ut in irure irure laborum ea cillum eiusmod reprehenderit veniam veniam. Sunt est sint ipsum adipisicing non labore in eu reprehenderit ex velit. Exercitation non aliqua ut proident."
-          />
+            description={
+            <>
+            Amal serves as General Counsel for the Moroccan American Business Alliance.
+            <br />
+            <br />
+            When she is not tending to her clients, Amal enjoys spending time with 
+            her family and supporting her community. She has committed herself to 
+            local charitable causes, including the Central Florida Chapter of the 
+            Susan G. Komen Foundation, The Howard Phillips Center for Children and 
+            Families, and Harbor House of Central Florida.
+            <br />
+            <br />
+            Amal is admitted to practice in all Florida State courts, the United 
+            States Middle District of Florida, and the United States Fifth Circuit 
+            of Appeals.
+            </>
+            }/>
         </div>
       </div>
     </div>

@@ -11,11 +11,13 @@ export default function GetStartedBanner() {
           We Help You With Quality Legal Lawyer
         </div>
         <p className="text-center max-w-4xl mx-auto">
-          Labore anim in eu cillum cillum ex aliqua. Labore pariatur enim cillum
-          cupidatat dolore irure est. Incididunt cupidatat cupidatat ipsum
-          eiusmod in esse consequat amet minim. Anim nisi quis pariatur culpa
-          consectetur consectetur duis esse proident anim nulla dolor commodo.
-          Commodo tempor reprehenderit exercitation qui velit dolore tempor sit.
+        Following an accident, you should always consult with an experienced 
+        personal injury attorney as soon as possible. An experienced personal 
+        injury attorney will help you negotiate with insurance companies and 
+        ensure that you receive the full amount of compensation you deserve for 
+        your losses.  Any delay in discussing your case with an experienced 
+        attorney may result in the loss or destruction of critical evidence and 
+        possibly jeopardize your ability to be compensated. 
         </p>
         <div className="flex justify-center">
           <Button

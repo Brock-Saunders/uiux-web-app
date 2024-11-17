@@ -7,7 +7,11 @@ export default function Attorneys() {
     <div>
       <SubpageHeader
         title="Attorneys"
-        description="Sint reprehenderit cillum duis duis esse exercitation consequat. Esse deserunt culpa nisi dolor minim ipsum veniam pariatur. Elit aliqua cupidatat sit Lorem. Magna dolor ipsum voluptate voluptate voluptate ad eu reprehenderit. Est elit amet nulla esse velit do labore proident ea commodo qui voluptate enim irure. Amet adipisicing officia fugiat nisi fugiat cillum."
+        description="Our team of attorneys is not only highly skilled but also 
+        rigorously trained and certified in their respective fields. With advanced 
+        legal education, specialized certifications, and years of hands-on experience, 
+        our attorneys are equipped to handle even the most complex legal challenges 
+        with confidence and expertise."
       />
       <AttorneysProfile />
       <Footer />

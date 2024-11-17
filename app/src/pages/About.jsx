@@ -10,7 +10,12 @@ export default function About() {
     <div>
       <SubpageHeader
         title="About Us"
-        description="Sint reprehenderit cillum duis duis esse exercitation consequat. Esse deserunt culpa nisi dolor minim ipsum veniam pariatur. Elit aliqua cupidatat sit Lorem. Magna dolor ipsum voluptate voluptate voluptate ad eu reprehenderit. Est elit amet nulla esse velit do labore proident ea commodo qui voluptate enim irure. Amet adipisicing officia fugiat nisi fugiat cillum."
+        description="Laassel Law was founded with one goal 
+        in mind: to provide high quality legal services in a 
+        small firm environment. Laassel Law provide its clients 
+        the sophistication of a large firm and the personal attention 
+        of a small firm. Our attorneys will personally handle every 
+        aspect of your case, from the initial consultation through resolution."
       />
       <AboutCompany />
       <GetStartedBanner />

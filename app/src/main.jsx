@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Attorneys from "./pages/Attorneys.jsx";
-import Faqs from "./pages/Faqs.jsx";
+import FAQs from "./pages/FAQs.jsx";
 import Resources from "./pages/Resources.jsx";
 import { I18nextProvider } from "react-i18next";
 
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
   { path: "/attorneys", element: <Attorneys /> },
-  { path: "/faqs", element: <Faqs /> },
+  { path: "/faqs", element: <FAQs /> },
   { path: "/resources", element: <Resources /> },
 ]);
 

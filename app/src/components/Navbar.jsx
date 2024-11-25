@@ -17,7 +17,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/")}
         >
-          {t("Home")}
+          {t("navbar.home")}
         </Button>
         <Button
           color="neutral"
@@ -25,7 +25,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/about")}
         >
-          {t("About Us")}
+          {t("navbar.aboutUs")}
         </Button>
         <Button
           color="neutral"
@@ -33,7 +33,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/attorneys")}
         >
-          {t("Attorneys")}
+          {t("navbar.attorneys")}
         </Button>
         <Button
           color="neutral"
@@ -41,7 +41,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/resources")}
         >
-          {t("Resources")}
+          {t("navbar.resources")}
         </Button>
         <Button
           color="neutral"
@@ -49,7 +49,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/faqs")}
         >
-          {t("FAQs")}
+          {t("navbar.faqs")}
         </Button>
         <Button
           color="neutral"
@@ -57,7 +57,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/contact")}
         >
-          {t("Contact")}
+          {t("navbar.contact")}
         </Button>
       </div>
     </div>

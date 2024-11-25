@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import Button from "@mui/joy/Button";
 import logo from "../assets/logo-header.png";
 import { useNavigate } from "react-router-dom";
 
 export default function NavBar({ bgColor, light = false }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className={`flex justify-between span p-7 px-10 ${bgColor}`}>
@@ -15,7 +17,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/")}
         >
-          Home
+          {t("Home")}
         </Button>
         <Button
           color="neutral"
@@ -23,7 +25,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/about")}
         >
-          About Us
+          {t("About Us")}
         </Button>
         <Button
           color="neutral"
@@ -31,7 +33,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/attorneys")}
         >
-          Attorneys
+          {t("Attorneys")}
         </Button>
         <Button
           color="neutral"
@@ -39,7 +41,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/resources")}
         >
-          Resources
+          {t("Resources")}
         </Button>
         <Button
           color="neutral"
@@ -47,7 +49,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/faqs")}
         >
-          FAQs
+          {t("FAQs")}
         </Button>
         <Button
           color="neutral"
@@ -55,7 +57,7 @@ export default function NavBar({ bgColor, light = false }) {
           variant="plain"
           onClick={() => navigate("/contact")}
         >
-          Contact
+          {t("Contact")}
         </Button>
       </div>
     </div>

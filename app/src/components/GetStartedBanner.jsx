@@ -8,16 +8,23 @@ export default function GetStartedBanner() {
     <div className="flex w-full bg-crimson text-white py-24">
       <div className="max-w-7xl w-full mx-auto space-y-10">
         <div className="text-4xl text-center font-serif">
-          We Help You With Quality Legal Lawyer
+          We Provide Expert Legal Representation
         </div>
         <p className="text-center max-w-4xl mx-auto">
-        Following an accident, you should always consult with an experienced 
-        personal injury attorney as soon as possible. An experienced personal 
-        injury attorney will help you negotiate with insurance companies and 
-        ensure that you receive the full amount of compensation you deserve for 
-        your losses.  Any delay in discussing your case with an experienced 
-        attorney may result in the loss or destruction of critical evidence and 
-        possibly jeopardize your ability to be compensated. 
+          After an accident, consulting a knowledgeable personal injury attorney
+          as soon as possible is essential to ensuring you receive the
+          compensation you deserve. A skilled attorney will guide you through
+          dealing with insurance companies, helping to negotiate a settlement
+          that fully accounts for your medical expenses, lost income, and other
+          damages. Delaying legal consultation can have serious consequences.
+          Critical evidence, such as witness statements, photos, or physical
+          evidence from the accident scene, can be lost or degraded over time.
+          Additionally, insurance companies may try to take advantage of your
+          delay by offering inadequate settlements or undermining your claim. By
+          acting quickly and seeking experienced legal counsel, you not only
+          ensure your ability to build a strong case but also gain an advocate
+          who will work tirelessly to ensure your voice is heard and your losses
+          are fully compensated.
         </p>
         <div className="flex justify-center">
           <Button

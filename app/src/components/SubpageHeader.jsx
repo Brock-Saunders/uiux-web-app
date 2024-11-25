@@ -10,7 +10,7 @@ export default function SubpageHeader({ title, description }) {
             <div className="grid grid-cols-3 divide-x-2 divide-white">
               <div className="w-full my-14 text-5xl font-serif">{title}</div>
               <div className="col-span-2">
-                <div className="px-24 my-5 leading-7">{description}</div>
+                <div className="px-24 my-1 leading-7">{description}</div>
               </div>
             </div>
           </div>

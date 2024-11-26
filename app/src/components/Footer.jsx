@@ -13,12 +13,12 @@ export default function Footer() {
         </div>
         <div className="mx-auto my-14 w-1/2 h-[0.5px] bg-white" />
         <div className="flex justify-center gap-10">
-          <FooterLink href="/">{t("footer.home")}</FooterLink>
-          <FooterLink href="/about">{t("footer.aboutUs")}</FooterLink>
-          <FooterLink href="/attorneys">{t("footer.attorneys")}</FooterLink>
-          <FooterLink href="/resources">{t("footer.resources")}</FooterLink>
-          <FooterLink href="/faqs">{t("footer.faqs")}</FooterLink>
-          <FooterLink href="/contact">{t("footer.contact")}</FooterLink>
+          <FooterLink href="/">{t("navbar.home")}</FooterLink>
+          <FooterLink href="/about">{t("navbar.aboutUs")}</FooterLink>
+          <FooterLink href="/attorneys">{t("navbar.attorneys")}</FooterLink>
+          <FooterLink href="/resources">{t("navbar.resources")}</FooterLink>
+          <FooterLink href="/faqs">{t("navbar.faqs")}</FooterLink>
+          <FooterLink href="/contact">{t("navbar.contact")}</FooterLink>
         </div>
         <div className="mx-auto my-14 w-1/2 h-[0.5px] bg-white" />
         <p className="text-center">

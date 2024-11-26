@@ -22,7 +22,7 @@ export default function Footer() {
         </div>
         <div className="mx-auto my-14 w-1/2 h-[0.5px] bg-white" />
         <p className="text-center">
-          Copyright © 2024. {t("footer.allRightsReserved")}
+          Copyright © 2024. All Rights Reserved
         </p>
       </div>
     </div>

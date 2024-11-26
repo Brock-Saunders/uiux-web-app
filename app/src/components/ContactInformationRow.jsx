@@ -16,7 +16,7 @@ export default function ContactInformationRow() {
       </div>
       <div className="flex items-center space-x-5 ">
         <img src={mail} className="w-5 h-5" />
-        <div>amal@laasellaw.com</div>
+        <div>amal@laassellaw.com</div>
       </div>
       <div className="flex items-center space-x-5 ">
         <img src={clock} className="w-5 h-5" />

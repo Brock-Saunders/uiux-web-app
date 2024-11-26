@@ -13,11 +13,10 @@ export default function HomeHeadBanner() {
             <img src={scales} alt="Scales of Justice" />
           </div>
           <div className="absolute -top-16 inset-0 flex items-center w-1/2 -translate-y-12">
-            <div className="text-4xl md:text-6xl font-serif text-gray-700">
-              {t("homeBanner.tagline")}{" "}
-              <a className="text-gold">{t("homeBanner.laassel")}</a>{" "}
-              {t("homeBanner.taglineEnd")}
-            </div>
+            <div
+              className="text-4xl md:text-6xl font-serif text-gray-700"
+              dangerouslySetInnerHTML={{ __html: t("homeBanner") }}
+            />
           </div>
         </div>
       </div>

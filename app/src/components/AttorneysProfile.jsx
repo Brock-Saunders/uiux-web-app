@@ -22,15 +22,15 @@ export default function AttorneysProfile() {
           <div className="flex space-x-12 mt-7">
             <div className="font-serif">
               <div className="text-lg">{t("attorneyProfile.experience.label")}</div>
-              <div className="text-3xl">{t("attorneyProfile.experience.value")}</div>
+              <div className="text-3xl">12+</div>
             </div>
             <div className="font-serif">
               <div className="text-lg">{t("attorneyProfile.cases.label")}</div>
-              <div className="text-3xl">{t("attorneyProfile.cases.value")}</div>
+              <div className="text-3xl">662+</div>
             </div>
             <div className="font-serif">
               <div className="text-lg">{t("attorneyProfile.clients.label")}</div>
-              <div className="text-3xl">{t("attorneyProfile.clients.value")}</div>
+              <div className="text-3xl">128+</div>
             </div>
           </div>
         </div>

@@ -1,11 +1,87 @@
 import { Textarea, Input, Button } from "@mui/joy";
 import { contactForm } from "../api/contact_form";
 import { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 import PhoneNumberInput from "./PhoneNumberInput";
 import EmailInput from "./EmailInput";
 
+const manualTranslations = {
+  en: {
+    title: "Contact Us",
+    firstName: "First Name",
+    lastName: "Last Name",
+    email: "Your Email",
+    phone: "Your Phone",
+    message: "Your Message",
+    submitButton: "Send Message",
+    successMessage: "Thank you for your message. We will get back to you as soon as possible.",
+    placeholders: {
+      firstName: "e.g. John",
+      lastName: "e.g. Doe",
+      email: "e.g. jdoe@example.com",
+      phone: "e.g. (111) 111-1111",
+      message: "Type your message here…",
+    },
+  },
+  es: {
+    title: "Contáctenos",
+    firstName: "Nombre",
+    lastName: "Apellido",
+    email: "Tu correo electrónico",
+    phone: "Tu teléfono",
+    message: "Tu mensaje",
+    submitButton: "Enviar mensaje",
+    successMessage: "Gracias por tu mensaje. Nos pondremos en contacto contigo lo antes posible.",
+    placeholders: {
+      firstName: "p. ej. Juan",
+      lastName: "p. ej. Pérez",
+      email: "p. ej. jperez@ejemplo.com",
+      phone: "p. ej. (111) 111-1111",
+      message: "Escribe tu mensaje aquí…",
+    },
+  },
+  ar: {
+    title: "اتصل بنا",
+    firstName: "الاسم الأول",
+    lastName: "الاسم الأخير",
+    email: "بريدك الإلكتروني",
+    phone: "هاتفك",
+    message: "رسالتك",
+    submitButton: "إرسال الرسالة",
+    successMessage: "شكراً على رسالتك. سوف نتواصل معك في أقرب وقت ممكن.",
+    placeholders: {
+      firstName: "مثال: أحمد",
+      lastName: "مثال: محمد",
+      email: "مثال: ahmed@email.com",
+      phone: "مثال: (111) 111-1111",
+      message: "اكتب رسالتك هنا…",
+    },
+  },
+  fr: {
+    title: "Contactez-nous",
+    firstName: "Prénom",
+    lastName: "Nom de famille",
+    email: "Votre courriel",
+    phone: "Votre téléphone",
+    message: "Votre message",
+    submitButton: "Envoyer le message",
+    successMessage: "Merci pour votre message. Nous vous répondrons dans les plus brefs délais.",
+    placeholders: {
+      firstName: "ex. Jean",
+      lastName: "ex. Dupont",
+      email: "ex. jdupont@email.com",
+      phone: "ex. (111) 111-1111",
+      message: "Tapez votre message ici…",
+    },
+  },
+};
+
 export default function ContactForm() {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || "en"; // Detect language or fallback to English
+
+  const translations = manualTranslations[currentLang] || manualTranslations["en"];
+
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [email, setEmail] = useState("");
@@ -15,78 +91,73 @@ export default function ContactForm() {
 
   return (
     <div className="w-full bg-beige text-gray-700">
-      <div className="grid grid-cols-5 w-full w-full md:max-w-7xl mx-auto py-32 px-16 gap-x-16">
+      <div className="grid grid-cols-5 w-full md:max-w-7xl mx-auto py-32 px-16 gap-x-16">
         <div className="col-span-3">
-          <div className="text-xl md:text-3xl md:text-4xl font-serif mb-10">
-            Get In Touch
+          <div className="text-xl md:text-3xl font-serif mb-10">
+            {translations.title}
           </div>
           {submitted ? (
-            <div>
-              Thank you for your message. We will get back to you as soon as
-              possible.
-            </div>
+            <div>{translations.successMessage}</div>
           ) : (
             <div className="space-y-7">
               <div className="flex space-x-5">
                 <div className="w-full">
-                  <div className="ml-1 mb-1">First Name</div>
+                  <div className="ml-1 mb-1">{translations.firstName}</div>
                   <Input
                     onChange={(e) => setFirst(e.target.value)}
-                    placeholder="e.g. John"
+                    placeholder={translations.placeholders.firstName}
                     variant="outlined"
                   />
                 </div>
                 <div className="w-full">
-                  <div className="ml-1 mb-1">Last Name</div>
+                  <div className="ml-1 mb-1">{translations.lastName}</div>
                   <Input
                     onChange={(e) => setLast(e.target.value)}
-                    placeholder="e.g. Doe"
+                    placeholder={translations.placeholders.lastName}
                     variant="outlined"
                   />
                 </div>
               </div>
               <div className="flex space-x-5">
                 <div className="w-full">
-                  <div className="ml-1 mb-1">Your Email</div>
+                  <div className="ml-1 mb-1">{translations.email}</div>
                   <EmailInput
                     value={email}
                     setValue={setEmail}
-                    placeholder="e.g. jdoe@example.com"
+                    placeholder={translations.placeholders.email}
                   />
                 </div>
                 <div className="w-full">
-                  <div className="ml-1 mb-1">Your Phone</div>
+                  <div className="ml-1 mb-1">{translations.phone}</div>
                   <PhoneNumberInput
                     value={phone}
                     setValue={setPhone}
-                    placeholder="e.g. (111) 111-1111"
+                    placeholder={translations.placeholders.phone}
                   />
                 </div>
               </div>
               <div className="space-y-5">
                 <div>
-                  <div className="ml-1 mb-1">Your Message</div>
+                  <div className="ml-1 mb-1">{translations.message}</div>
                   <Textarea
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Type in here…"
+                    placeholder={translations.placeholders.message}
                     minRows={5}
                   />
                 </div>
                 <Button
                   onClick={() =>
-                    contactForm(first, last, email, phone, message).then(
-                      (res) => {
-                        if (res.status === 200) {
-                          setSubmitted(true);
-                        } else {
-                          alert(res.data);
-                        }
+                    contactForm(first, last, email, phone, message).then((res) => {
+                      if (res.status === 200) {
+                        setSubmitted(true);
+                      } else {
+                        alert(res.data);
                       }
-                    )
+                    })
                   }
                   sx={crimsonButtonStyle}
                 >
-                  Send Message
+                  {translations.submitButton}
                 </Button>
               </div>
             </div>
@@ -107,6 +178,7 @@ export default function ContactForm() {
     </div>
   );
 }
+
 
 const crimsonButtonStyle = {
   background: "#982720",

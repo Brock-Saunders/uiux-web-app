@@ -3,8 +3,11 @@ import lawyer from "../assets/lawyer-portrait-2.png";
 import { useTranslation } from "react-i18next";
 
 export default function AttorneysProfile() {
-  const { t } = useTranslation(); // Hook for translations
+  const { t, ready } = useTranslation(); // Hook for translations
 
+  if (!ready) {
+    return <div>Loading translations...</div>;
+  }
   return (
     <div className="w-full bg-beige text-gray-700">
       <div className="w-full w-full md:max-w-7xl grid grid-cols-2 py-32 mx-auto">

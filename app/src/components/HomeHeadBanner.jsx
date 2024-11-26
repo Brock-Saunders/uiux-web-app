@@ -10,7 +10,7 @@ export default function HomeHeadBanner() {
       <div className="mx-auto px-5 md:px-16 w-full md:max-w-7xl w-full relative">
         <div className="relative">
           <div className="w-4/5 ml-auto max-h-[500px] overflow-hidden shadow-xl">
-            <img src={scales} />
+            <img src={scales} alt="Scales of Justice" />
           </div>
           <div className="absolute -top-16 inset-0 flex items-center w-1/2 -translate-y-12">
             <div className="text-4xl md:text-6xl font-serif text-gray-700">

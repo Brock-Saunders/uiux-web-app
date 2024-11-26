@@ -1,8 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import gavel from "../assets/gavel-2.png";
 import ListRow from "./ListRow";
+import { useTranslation } from "react-i18next";
 
 export default function ResourcesServices() {
+  const { t } = useTranslation(); // Hook for translations
+
   return (
     <div className="w-full bg-beige">
       <div className="px-16 w-full md:max-w-7xl w-full relative pt-32 mx-auto">
@@ -148,7 +151,6 @@ export default function ResourcesServices() {
                 </>
               }
             />
-
             <ServiceRow
               service="Premises Liability"
               description={
@@ -234,7 +236,12 @@ function ServiceRow({ service, description, border = true }) {
       <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
         <ListRow question={service} anwser={isOpen ? description : ""} />
       </div>
-      {isOpen && <div className="pt-4 text-gray-600">{description}</div>}
+      {isOpen && (
+        <div
+          className="pt-4 text-gray-600"
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></div>
+      )}
       {border && <div className="my-7 w-full h-[0.5px] bg-gray-700"></div>}
     </div>
   );

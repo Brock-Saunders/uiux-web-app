@@ -1,6 +1,10 @@
+import React from "react";
 import gavel from "../assets/gavel.png";
+import { useTranslation } from "react-i18next";
 
 export default function AboutAwards() {
+  const { t } = useTranslation(); // Hook for translations
+
   return (
     <div className="flex w-full bg-beige text-white pt-32">
       <div className="mx-auto px-16 w-full md:max-w-7xl w-full relative">

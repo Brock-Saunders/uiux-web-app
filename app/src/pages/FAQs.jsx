@@ -1,24 +1,18 @@
+import React from "react";
 import SubpageHeader from "../components/SubpageHeader";
 import FAQList from "../components/FAQList";
 import GetStartedBanner from "../components/GetStartedBanner";
 import ClientTestimonials from "../components/ClientTestimonials";
 import Footer from "../components/Footer";
+import { useTranslation } from "react-i18next";
 
 export default function Faqs() {
+  const { t } = useTranslation();
   return (
     <div>
       <SubpageHeader
-        title="FAQs"
-        description={
-          <p>
-            The time after an accident can be confusing, and having questions
-            regarding what to do is completely natural! Here at Laasel Law, we
-            want to answer your questions to arm you with all the information
-            you might need to proceed forward properly with your accident. Below
-            are a few frequently asked questions that can help you. Don't see
-            your question answered? Contact us!
-          </p>
-        }
+        title={t("faqs.header.title")}
+        description={t("faqs.header.description")}
       />
       <FAQList />
       <GetStartedBanner />

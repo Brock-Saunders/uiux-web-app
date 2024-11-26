@@ -6,7 +6,7 @@ export default function HomeLawyerProfile() {
   const { t } = useTranslation();
 
   return (
-    <div className="hidden md:visible flex w-full bg-beige text-gray-700 pt-20 pb-32">
+    <div className="flex w-full bg-beige text-gray-700 pt-20 pb-32">
       <div className="mx-auto px-16 max-w-7xl w-full relative ">
         <div className="grid grid-cols-3 divide-x-2 divide-crimson">
           <div className="w-full my-14">

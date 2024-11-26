@@ -1,9 +1,13 @@
 import { useState } from "react";
 import ListRow from "./ListRow";
+import { useTranslation } from "react-i18next";
 
 export default function FAQs() {
-  // State to track the active dropdowns
-  const [activeIndexes, setActiveIndexes] = useState([false, false]);
+  const { t } = useTranslation();
+  const faqs = t("faq.list", { returnObjects: true }); // Fetch the FAQ list
+  const [activeIndexes, setActiveIndexes] = useState(
+    new Array(faqs.length).fill(false)
+  );
 
   const toggleDropdown = (index) => {
     setActiveIndexes((prevIndexes) =>

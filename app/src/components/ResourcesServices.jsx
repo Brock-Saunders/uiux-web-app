@@ -7,17 +7,18 @@ export default function ResourcesServices() {
     <div className="w-full bg-beige">
       <div className="px-16 w-full md:max-w-7xl w-full relative pt-32 mx-auto">
         <div className="relative flex items-center">
-          <div className="w-3/5 max-h-[500px] overflow-hidden shadow-xl">
+          <div className="md:w-3/5 mt-32 md:mt-0 max-h-[500px] overflow-hidden shadow-xl">
             <img src={gavel} />
           </div>
-          <div className="absolute right-0 top-0 w-1/2 flex items-center translate-y-16 translate-x-10">
-            <div className="text-6xl font-serif text-gray-700">
-              Professional Legal Services Offered by Lassel Law
+          <div className="absolute right-0 -top-[136px] md:top-0 md:w-1/2 flex items-center translate-y-16 translate-x-10">
+            <div className="text-4xl md:text-6xl font-serif text-gray-700">
+              Professional Legal Services Offered by{" "}
+              <a className="text-gold md:text-gray-700">Laassel Law Firm</a>
             </div>
           </div>
         </div>
-        <div className="text-gray-700 pt-32">
-          <div className="grid grid-cols-2 gap-x-24 mx-auto w-4/5">
+        <div className="text-gray-700 pt-16 md:pt-32">
+          <div className="md:grid grid-cols-2 gap-x-24 mx-auto w-4/5">
             <ServiceRow
               service="Immigration"
               description={
@@ -218,11 +219,6 @@ export default function ResourcesServices() {
                 </>
               }
             />
-            {/* <ServiceRow
-              service="Education & Lawyer Consulation"
-              description="Amet exercitation enim eiusmod exercitation quis exercitation adipisicing elit."
-              border={false}
-            /> */}
           </div>
         </div>
       </div>

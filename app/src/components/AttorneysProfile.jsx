@@ -3,12 +3,12 @@ import lawyer from "../assets/lawyer-portrait-2.png";
 export default function AttorneysProfile() {
   return (
     <div className="w-full bg-beige text-gray-700">
-      <div className="w-full w-full md:max-w-7xl grid grid-cols-2 py-32 mx-auto">
+      <div className="w-full w-full md:max-w-7xl md:grid grid-cols-2 py-32 mx-auto">
         <div>
-          <img src={lawyer} className="w-96 shadow-lg mx-auto" />
+          <img src={lawyer} className="w-64 md:w-96 shadow-lg mx-auto" />
         </div>
-        <div>
-          <div className="text-xl md:text-3xl md:text-4xl font-serif">
+        <div className="pt-16 px-10 md:px-0 md:pt-0">
+          <div className="text-3xl md:text-3xl md:text-4xl font-serif">
             Amal Laassel
           </div>
           <div className="font-serif text-xl mt-3 mb-7">Attorney</div>
@@ -35,8 +35,8 @@ export default function AttorneysProfile() {
           </div>
         </div>
       </div>
-      <div className="w-full w-full md:max-w-7xl pt-5 pb-40 mx-auto">
-        <div className="grid grid-cols-2">
+      <div className="w-full md:max-w-7xl md:pt-5 pb-40 mx-auto">
+        <div className="md:grid grid-cols-2">
           <Quad
             title="Education"
             description={
@@ -145,7 +145,7 @@ export default function AttorneysProfile() {
 
 function Quad({ title, description }) {
   return (
-    <div className="grid grid-cols-5 my-3 mx-3">
+    <div className="grid grid-cols-5 pr-10 my-16 md:my-3 md:mx-3">
       <div className="mx-8 mt-3">
         <div className="w-full h-[0.5px] bg-gray-700"></div>
       </div>

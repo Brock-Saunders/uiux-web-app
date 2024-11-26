@@ -9,9 +9,9 @@ export default function ClientTestimonials() {
   });
 
   return (
-    <div className="bg-beige text-gray-700 py-24">
-      <div className="w-full md:max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-serif text-center mb-12">
+    <div className="bg-beige text-gray-700 py-20 md:py-24">
+      <div className="w-full md:max-w-7xl mx-auto px-12 md:px-4">
+        <h2 className="text-4xl font-serif text-center mb-24 md:mb-12">
           {t("clientTestimonials.title")}
         </h2>
         {testimonials.map((testimonial, index) => (
@@ -35,7 +35,7 @@ export default function ClientTestimonials() {
             </div>
             <div className="col-span-5 flex flex-col justify-center">
               <h3 className="text-xl font-bold">{testimonial.title}</h3>
-              <p className="leading-7 mt-2">{testimonial.text}</p>
+              <p className="leading-7 mt-5">{testimonial.text}</p>
             </div>
           </div>
         ))}

@@ -2,6 +2,9 @@ import { Textarea, Input, Button } from "@mui/joy";
 import { contactForm } from "../api/contact_form";
 import { useState } from "react";
 
+import PhoneNumberInput from "./PhoneNumberInput";
+import EmailInput from "./EmailInput";
+
 export default function ContactForm() {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -11,8 +14,8 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="w-screen bg-beige text-gray-700">
-      <div className="grid grid-cols-5 w-full max-w-8xl py-32 px-16 gap-x-16">
+    <div className="w-full bg-beige text-gray-700">
+      <div className="grid grid-cols-5 w-full max-w-7xl mx-auto py-32 px-16 gap-x-16">
         <div className="col-span-3">
           <div className="text-4xl font-serif mb-10">Get In Touch</div>
           {submitted ? (
@@ -27,7 +30,7 @@ export default function ContactForm() {
                   <div className="ml-1 mb-1">First Name</div>
                   <Input
                     onChange={(e) => setFirst(e.target.value)}
-                    placeholder="Type in here…"
+                    placeholder="e.g. John"
                     variant="outlined"
                   />
                 </div>
@@ -35,7 +38,7 @@ export default function ContactForm() {
                   <div className="ml-1 mb-1">Last Name</div>
                   <Input
                     onChange={(e) => setLast(e.target.value)}
-                    placeholder="Type in here…"
+                    placeholder="e.g. Doe"
                     variant="outlined"
                   />
                 </div>
@@ -43,18 +46,18 @@ export default function ContactForm() {
               <div className="flex space-x-5">
                 <div className="w-full">
                   <div className="ml-1 mb-1">Your Email</div>
-                  <Input
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Type in here…"
-                    variant="outlined"
+                  <EmailInput
+                    value={email}
+                    setValue={setEmail}
+                    placeholder="e.g. jdoe@example.com"
                   />
                 </div>
                 <div className="w-full">
                   <div className="ml-1 mb-1">Your Phone</div>
-                  <Input
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Type in here…"
-                    variant="outlined"
+                  <PhoneNumberInput
+                    value={phone}
+                    setValue={setPhone}
+                    placeholder="e.g. (111) 111-1111"
                   />
                 </div>
               </div>

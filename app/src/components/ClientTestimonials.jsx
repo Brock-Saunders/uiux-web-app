@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 export default function ClientTestimonials() {
   const { t } = useTranslation();
 
-  const testimonials = t("clientTestimonials.testimonials", { returnObjects: true });
+  const testimonials = t("clientTestimonials.testimonials", {
+    returnObjects: true,
+  });
 
   return (
     <div className="bg-beige text-gray-700 py-24">
@@ -18,11 +20,11 @@ export default function ClientTestimonials() {
             className="grid grid-cols-1 md:grid-cols-7 gap-6 mb-12"
           >
             <div className="col-span-2 flex flex-col justify-center items-start">
-              <div className="text-xl font-semibold">{testimonial.author}</div>
-              <div className="text-sm text-gray-500">
+              <div className="text-3xl font-semibold">{testimonial.author}</div>
+              <div className="text-gray-500">
                 {new Date(testimonial.date).toLocaleDateString()}
               </div>
-              <div className="flex mt-2">
+              <div className="flex mt-2 text-lg">
                 <div className="text-yellow-400">
                   {"★".repeat(testimonial.stars)}
                   {"☆".repeat(5 - testimonial.stars)}

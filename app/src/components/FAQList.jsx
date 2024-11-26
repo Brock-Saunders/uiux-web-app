@@ -3,7 +3,7 @@ import ListRow from "./ListRow";
 
 export default function FAQs() {
   // State to track the active dropdowns
-  const [activeIndexes, setActiveIndexes] = useState([true, true]);
+  const [activeIndexes, setActiveIndexes] = useState([false, false]);
 
   const toggleDropdown = (index) => {
     setActiveIndexes((prevIndexes) =>
@@ -13,7 +13,7 @@ export default function FAQs() {
 
   return (
     <div className="w-full bg-beige text-gray-700">
-      <div className="max-w-7xl w-full px-16 py-32">
+      <div className="max-w-7xl w-full px-16 py-32 mx-auto">
         <div className="flex items-center">
           <div className="text-3xl w-3/5 font-serif ml-16 mr-10">
             Frequently Asked Questions

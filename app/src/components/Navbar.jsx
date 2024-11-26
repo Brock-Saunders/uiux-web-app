@@ -3,6 +3,7 @@ import Button from "@mui/joy/Button";
 import Menu from "@mui/joy/Menu";
 import MenuItem from "@mui/joy/MenuItem";
 import logo from "../assets/logo-header.png";
+import logo_white from "../assets/logo-header-white-full.png";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -11,8 +12,8 @@ export default function NavBar({ bgColor, light = false }) {
   const { t, i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
-   // Handle menu opening and closing
-   const handleMenuOpen = (event) => {
+  // Handle menu opening and closing
+  const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleMenuClose = () => {
@@ -27,7 +28,7 @@ export default function NavBar({ bgColor, light = false }) {
 
   return (
     <div className={`flex justify-between span p-7 px-10 ${bgColor}`}>
-      <img className="w-64" src={logo} />
+      <img className="w-64" src={light ? logo_white : logo} />
       <div className="flex gap-2 mr-5">
         <Button
           color="neutral"
@@ -77,7 +78,7 @@ export default function NavBar({ bgColor, light = false }) {
         >
           {t("navbar.contact")}
         </Button>
-        
+
         {/* Language Dropdown */}
         <Button
           color="neutral"
@@ -91,6 +92,7 @@ export default function NavBar({ bgColor, light = false }) {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
+          onPointerLeave={handleMenuClose}
         >
           <MenuItem onClick={() => changeLanguage("en")}>English</MenuItem>
           <MenuItem onClick={() => changeLanguage("es")}>Español</MenuItem>

@@ -1,6 +1,16 @@
+import { useState } from "react";
 import ListRow from "./ListRow";
 
-export default function () {
+export default function FAQs() {
+  // State to track the active dropdowns
+  const [activeIndexes, setActiveIndexes] = useState([true, true]);
+
+  const toggleDropdown = (index) => {
+    setActiveIndexes((prevIndexes) =>
+      prevIndexes.map((isOpen, i) => (i === index ? !isOpen : isOpen))
+    );
+  };
+
   return (
     <div className="w-full bg-beige text-gray-700">
       <div className="max-w-7xl w-full px-16 py-32">
@@ -12,24 +22,107 @@ export default function () {
         </div>
         <div className="ml-16 mt-16 mb-12 space-y-10">
           <ListRow
-            question="Irure dolor non ea culpa dolore?"
-            anwser="Aute laborum ut laborum reprehenderit veniam pariatur qui consequat sunt. Id ut laborum enim sint anim officia minim est. Enim velit elit reprehenderit excepteur proident nisi ex reprehenderit aute. Nostrud proident cupidatat incididunt sunt sit incididunt velit nisi dolore consectetur veniam ea irure. Sunt commodo occaecat exercitation consequat eiusmod mollit. Ad nostrud commodo sunt enim. Officia labore consequat velit est Lorem."
+            question="What Should I do Immediately Following an Accident?"
+            answer={
+              <>
+                <p>
+                  <strong>Seek Medical Attention</strong> – If medical personnel
+                  on the scene believe that you require emergency medical
+                  attention, always follow their advice. Your health should be
+                  your number one priority and you should not risk greater
+                  injury by refusing to be transported to the hospital. If you
+                  do not require emergency care, you should always seek an
+                  evaluation from your doctor as soon as possible following the
+                  accident.
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  <strong>Collect Information</strong> – If you are able to
+                  remain at the scene of the accident, begin collecting as much
+                  information as possible. Take photos of the scene of the
+                  accident, including any conditions that are out of the
+                  ordinary such as road hazards, marks, or anything else that
+                  may seem relevant. Record the names and contact information of
+                  all individuals involved in the incident or witnesses who
+                  stopped.
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  <strong>Obtain a Written Report</strong> – When possible, make
+                  sure you report the accident and obtain a copy of the written
+                  report.
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  <strong>Write Down Your Recollections</strong> – As soon as
+                  possible, write down your recollection of every possible
+                  detail of the events before, during, and after the accident.
+                  Memories fade and your case may take time to resolve,
+                  therefore such notes will ensure that you accurately remember
+                  the events and do not fail to recall important details at a
+                  later date.
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  <strong>
+                    Do Not Provide a Recorded Statement to the Insurance Company
+                  </strong>{" "}
+                  – The at-fault party’s insurance company may try to contact
+                  you soon after your accident to “make sure that you are okay”.
+                  You may be think that fault is clear and that speaking to the
+                  adjuster is harmless. You may even think that you are
+                  obligated to talk to that insurance company. You are not. Do
+                  not speak to the at-fault party’s insurance company without
+                  first consulting with an attorney.
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  <strong>Contact an Attorney</strong> – Following an accident,
+                  you should always consult with an experienced personal injury
+                  attorney as soon as possible. An experienced personal injury
+                  attorney will help you negotiate with insurance companies and
+                  ensure that you receive the full amount of compensation you
+                  deserve for your losses. Any delay in discussing your case
+                  with an experienced attorney may result in the loss or
+                  destruction of critical evidence and possibly jeopardize your
+                  ability to be compensated.
+                </p>
+              </>
+            }
+            isOpen={activeIndexes[0]}
+            toggleDropdown={() => toggleDropdown(0)}
           />
           <ListRow
-            question="Proident sint Lorem adipisicing aliquip cillum proident commodo aute?"
-            anwser="Aute irure adipisicing nulla commodo consequat veniam do nulla. Sint minim aute cillum dolore fugiat sit id nostrud id et anim irure laborum voluptate. Dolor quis est veniam consequat voluptate sit deserunt consequat mollit duis. In ullamco ex tempor veniam qui sunt excepteur labore eu magna occaecat proident pariatur quis."
-          />
-          <ListRow
-            question="Aliquip irure aliqua quis esse adipisicing Lorem laborum ex proident ea sint Lorem ad?"
-            anwser="Anim do elit irure ut officia tempor ea laboris laborum reprehenderit sint consectetur. Proident nostrud esse voluptate in dolor cillum excepteur et reprehenderit cillum commodo in sunt. In pariatur mollit cupidatat ullamco ex commodo eu. Lorem ut cupidatat non labore ea non aute adipisicing irure fugiat. Est cillum Lorem dolore dolor Lorem ut velit minim qui exercitation magna proident. Excepteur in ut nisi id minim ullamco magna voluptate Lorem consectetur. Adipisicing elit magna eu magna in velit."
-          />
-          <ListRow
-            question="Nulla nulla aute aliqua aute anim cillum commodo dolore elit ipsum eiusmod cupidatat do esse?"
-            anwser="Officia minim nostrud in ipsum culpa reprehenderit magna in nulla labore dolore. Veniam est aliquip veniam labore ex aliqua consequat officia exercitation mollit exercitation deserunt. Ex irure eiusmod qui ad laboris labore sit in dolor excepteur. Nisi ea excepteur proident fugiat non. Exercitation dolore esse labore aliquip velit consequat ut voluptate id fugiat magna. Ea irure dolore ad occaecat eu minim dolor magna et occaecat deserunt ipsum. Laboris aliquip ad quis reprehenderit labore aliqua proident pariatur enim occaecat cillum officia mollit sint."
-          />
-          <ListRow
-            question="Sint aute sint velit ex esse voluptate eiusmod id ea sint reprehenderit ea velit minim?"
-            anwser="Ullamco sunt anim ea cillum mollit proident adipisicing labore adipisicing ea fugiat sint nisi. Sint proident proident id ipsum culpa non ullamco dolore commodo. Est non amet qui elit deserunt labore ad minim. Commodo cillum elit amet excepteur sint magna amet voluptate consectetur ex eiusmod dolor. Fugiat amet reprehenderit proident veniam irure ullamco ad est nostrud reprehenderit nulla cillum."
+            question="How Much is My Personal Injury Case Worth?"
+            answer={
+              <>
+                <p>
+                  The answer is: every case is different. Your compensation will
+                  depend on the negligence of the at-fault driver, the type of
+                  injuries that you suffered, the amount of your medical bills,
+                  and the individual “story” of your case. At Laassel Law, we
+                  understand the complexities of the legal system and we have a
+                  successful record of obtaining the compensation you deserve.
+                  <br />
+                  <br />
+                </p>
+                <p>
+                  At Laassel Law, we will use our expertise to help you navigate
+                  the complex rules and procedures involved in a personal injury
+                  case. We will take the time to build a very strong case
+                  against the negligent party in order to recover every penny
+                  you are rightfully entitled to. We are not afraid to go to
+                  court to get you the compensation you deserve!
+                </p>
+              </>
+            }
+            isOpen={activeIndexes[1]}
+            toggleDropdown={() => toggleDropdown(1)}
           />
         </div>
       </div>

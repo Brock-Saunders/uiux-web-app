@@ -9,7 +9,16 @@ export default function Faqs() {
     <div>
       <SubpageHeader
         title="FAQs"
-        description="Sint reprehenderit cillum duis duis esse exercitation consequat. Esse deserunt culpa nisi dolor minim ipsum veniam pariatur. Elit aliqua cupidatat sit Lorem. Magna dolor ipsum voluptate voluptate voluptate ad eu reprehenderit. Est elit amet nulla esse velit do labore proident ea commodo qui voluptate enim irure. Amet adipisicing officia fugiat nisi fugiat cillum."
+        description={
+          <p>
+            The time after an accident can be confusing, and having questions
+            regarding what to do is completely natural! Here at Laasel Law, we
+            want to answer your questions to arm you with all the information
+            you might need to proceed forward properly with your accident. Below
+            are a few frequently asked questions that can help you. Don't see
+            your question answered? Contact us!
+          </p>
+        }
       />
       <FAQList />
       <GetStartedBanner />

@@ -1,33 +1,40 @@
-import client from "../assets/client.png";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ClientTestimonials() {
+  const { t } = useTranslation();
+
+  const testimonials = t("clientTestimonials.testimonials", { returnObjects: true });
+
   return (
-    <div>
-      <div className="flex w-full bg-beige text-gray-700 py-24">
-        <div className="max-w-7xl w-full mx-auto grid grid-cols-7">
-          <div className="col-span-2">
-            <div className="ml-12 text-4xl font-serif">
-              What Our Clients Say About Us
+    <div className="bg-beige text-gray-700 py-24">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-4xl font-serif text-center mb-12">
+          {t("clientTestimonials.title")}
+        </h2>
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="grid grid-cols-1 md:grid-cols-7 gap-6 mb-12"
+          >
+            <div className="col-span-2 flex flex-col justify-center items-start">
+              <div className="text-xl font-semibold">{testimonial.author}</div>
+              <div className="text-sm text-gray-500">
+                {new Date(testimonial.date).toLocaleDateString()}
+              </div>
+              <div className="flex mt-2">
+                <div className="text-yellow-400">
+                  {"★".repeat(testimonial.stars)}
+                  {"☆".repeat(5 - testimonial.stars)}
+                </div>
+              </div>
             </div>
-            <img
-              src={client}
-              className="mr-5 w-48 mx-auto mt-16 rounded-full shadow-xl"
-            />
+            <div className="col-span-5 flex flex-col justify-center">
+              <h3 className="text-xl font-bold">{testimonial.title}</h3>
+              <p className="leading-7 mt-2">{testimonial.text}</p>
+            </div>
           </div>
-          <div className="my-auto col-span-5 max-w-xl mx-auto">
-            <p className="leading-7">
-            When no one would take my case, she did, and stayed the course 
-            to the finish. At one point the case looked dead, and again, she 
-            put in another try, and it was then settled! Had it not been for 
-            her diligence, things would have been definitely different. I 
-            recommend Amal to anyone needing an attorney, who will stay true 
-            to the end, and will do it with kindness and efficiency. She was 
-            amazingly thorough and organized. Call Amal if you need someone to 
-            do what needs to be done, in an efficient way.
-            </p>
-            <div className="flex justify-end mt-10">- John Doe</div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

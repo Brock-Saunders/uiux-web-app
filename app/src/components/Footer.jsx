@@ -1,63 +1,39 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
 import logo_white from "../assets/logo-header-white.png";
 
 export default function Footer() {
+  const { t } = useTranslation(); // Translation hook
+
   return (
     <div className="flex w-full bg-crimson text-white py-20">
       <div className="max-w-7xl w-full mx-auto">
         <div className="flex justify-center">
-          <img className="w-48" src={logo_white} />
+          <img className="w-48" src={logo_white} alt="Logo" />
         </div>
         <div className="mx-auto my-14 w-1/2 h-[0.5px] bg-white" />
-        <div className="flex justify-center gap-20">
-          <FooterColumn title="Home">
-            <p>Lorem Ipsum</p>
-            <p>Dolor Sit</p>
-            <p>Lorem Ipsum</p>
-          </FooterColumn>
-          <FooterColumn title="About Us">
-            <p>Lorem Ipsum</p>
-            <p>Dolor Sit</p>
-            <p>Lorem Ipsum</p>
-          </FooterColumn>
-          <FooterColumn title="Attorneys">
-            <p>Lorem Ipsum</p>
-            <p>Dolor Sit</p>
-            <p>Lorem Ipsum</p>
-          </FooterColumn>
-          <FooterColumn title="Resources">
-            <p>Lorem Ipsum</p>
-            <p>Dolor Sit</p>
-            <p>Lorem Ipsum</p>
-          </FooterColumn>
-          <FooterColumn title="FAQs">
-            <p>Lorem Ipsum</p>
-            <p>Dolor Sit</p>
-            <p>Lorem Ipsum</p>
-          </FooterColumn>
-          <FooterColumn title="Contact">
-            <p>Lorem Ipsum</p>
-            <p>Dolor Sit</p>
-            <p>Lorem Ipsum</p>
-          </FooterColumn>
+        <div className="flex justify-center gap-10">
+          <FooterLink href="/">{t("footer.home")}</FooterLink>
+          <FooterLink href="/about">{t("footer.aboutUs")}</FooterLink>
+          <FooterLink href="/attorneys">{t("footer.attorneys")}</FooterLink>
+          <FooterLink href="/resources">{t("footer.resources")}</FooterLink>
+          <FooterLink href="/faqs">{t("footer.faqs")}</FooterLink>
+          <FooterLink href="/contact">{t("footer.contact")}</FooterLink>
         </div>
         <div className="mx-auto my-14 w-1/2 h-[0.5px] bg-white" />
-        <p className="text-center">Copyright © 2024. All Rights Reserved</p>
+        <p className="text-center">Copyright © 2024. {t("footer.allRightsReserved")}</p>
       </div>
     </div>
   );
 }
 
-function FooterColumn({ title, children }) {
+function FooterLink({ href, children }) {
   return (
-    <div className="flex flex-col">
-      <div className="font-serif text-xl mb-2">{title}</div>
-      <div className="space-y-1 pl-[3px] text-sm">
-        {children.map((child, index) => (
-          <p key={index} className="hoverable">
-            {child}
-          </p>
-        ))}
-      </div>
-    </div>
+    <a
+      href={href}
+      className="text-sm hover:underline"
+    >
+      {children}
+    </a>
   );
 }

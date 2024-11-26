@@ -1,41 +1,91 @@
 import { Textarea, Input, Button } from "@mui/joy";
-import office from "../assets/office.png";
+import { contactForm } from "../api/contact_form";
+import { useState } from "react";
 
 export default function ContactForm() {
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <div className="w-screen bg-beige text-gray-700">
       <div className="grid grid-cols-5 w-full max-w-8xl py-32 px-16 gap-x-16">
         <div className="col-span-3">
           <div className="text-4xl font-serif mb-10">Get In Touch</div>
-          <div className="space-y-7">
-            <div className="flex space-x-5">
-              <div className="w-full">
-                <div className="ml-1 mb-1">First Name</div>
-                <Input placeholder="Type in here…" variant="outlined" />
+          {submitted ? (
+            <div>
+              Thank you for your message. We will get back to you as soon as
+              possible.
+            </div>
+          ) : (
+            <div className="space-y-7">
+              <div className="flex space-x-5">
+                <div className="w-full">
+                  <div className="ml-1 mb-1">First Name</div>
+                  <Input
+                    onChange={(e) => setFirst(e.target.value)}
+                    placeholder="Type in here…"
+                    variant="outlined"
+                  />
+                </div>
+                <div className="w-full">
+                  <div className="ml-1 mb-1">Last Name</div>
+                  <Input
+                    onChange={(e) => setLast(e.target.value)}
+                    placeholder="Type in here…"
+                    variant="outlined"
+                  />
+                </div>
               </div>
-              <div className="w-full">
-                <div className="ml-1 mb-1">Last Name</div>
-                <Input placeholder="Type in here…" variant="outlined" />
+              <div className="flex space-x-5">
+                <div className="w-full">
+                  <div className="ml-1 mb-1">Your Email</div>
+                  <Input
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Type in here…"
+                    variant="outlined"
+                  />
+                </div>
+                <div className="w-full">
+                  <div className="ml-1 mb-1">Your Phone</div>
+                  <Input
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Type in here…"
+                    variant="outlined"
+                  />
+                </div>
+              </div>
+              <div className="space-y-5">
+                <div>
+                  <div className="ml-1 mb-1">Your Message</div>
+                  <Textarea
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Type in here…"
+                    minRows={5}
+                  />
+                </div>
+                <Button
+                  onClick={() =>
+                    contactForm(first, last, email, phone, message).then(
+                      (res) => {
+                        if (res.status === 200) {
+                          setSubmitted(true);
+                        } else {
+                          alert(res.data);
+                        }
+                      }
+                    )
+                  }
+                  sx={crimsonButtonStyle}
+                >
+                  Send Message
+                </Button>
               </div>
             </div>
-            <div className="flex space-x-5">
-              <div className="w-full">
-                <div className="ml-1 mb-1">Your Email</div>
-                <Input placeholder="Type in here…" variant="outlined" />
-              </div>
-              <div className="w-full">
-                <div className="ml-1 mb-1">Your Phone</div>
-                <Input placeholder="Type in here…" variant="outlined" />
-              </div>
-            </div>
-            <div className="space-y-5">
-              <div>
-                <div className="ml-1 mb-1">Your Message</div>
-                <Textarea placeholder="Type in here…" minRows={5} />
-              </div>
-              <Button sx={crimsonButtonStyle}>Send Message</Button>
-            </div>
-          </div>
+          )}
         </div>
         <div className="col-span-2">
           <div className="mt-10">

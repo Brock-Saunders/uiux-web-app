@@ -5,11 +5,11 @@ import { useTranslation } from "react-i18next";
 export default function AboutCompany() {
   const { t } = useTranslation();
   return (
-    <div className="flex w-full bg-beige text-gray-700 pt-32 pb-32">
+    <div className="flex w-full bg-beige text-gray-700 pt-16 md:pt-32 pb-32">
       <div className="mx-auto px-16 w-full md:max-w-7xl w-full relative">
-        <div className="grid grid-cols-2 divide-x-2 divide-gray-700">
-          <div className="px-24 my-32 text-3xl md:text-5xl font-serif">
-            {t("aboutCompany.header")}
+        <div className="md:grid grid-cols-2 md:divide-x-2 divide-gray-700">
+          <div className="md:px-24 md:my-32 text-3xl md:text-5xl font-serif">
+            Helping to Overcome and Ease The Legal Burden
           </div>
           <div className="w-full my-14">
             <img className="w-96 mx-auto shadow-xl" src={soj} />

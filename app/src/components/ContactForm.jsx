@@ -100,7 +100,7 @@ export default function ContactForm() {
             <div>{translations.successMessage}</div>
           ) : (
             <div className="space-y-7">
-              <div className="flex space-x-5">
+              <div className="md:flex md:space-x-5 space-y-5">
                 <div className="w-full">
                   <div className="ml-1 mb-1">{translations.firstName}</div>
                   <Input
@@ -118,7 +118,7 @@ export default function ContactForm() {
                   />
                 </div>
               </div>
-              <div className="flex space-x-5">
+              <div className="md:flex md:space-x-5 space-y-5">
                 <div className="w-full">
                   <div className="ml-1 mb-1">{translations.email}</div>
                   <EmailInput
@@ -163,7 +163,7 @@ export default function ContactForm() {
             </div>
           )}
         </div>
-        <div className="col-span-2">
+        <div className="mt-24 md:mt-0 col-span-2">
           <div className="mt-10">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.985417462002!2d-81.40153592458141!3d28.449855975764944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77c4cf2e81bd9%3A0x29350534ea331066!2s1650%20Sand%20Lake%20Rd%20suite%20114-a%2C%20Orlando%2C%20FL%2032809!5e0!3m2!1sen!2sus!4v1730550699892!5m2!1sen!2sus"

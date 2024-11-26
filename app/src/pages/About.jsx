@@ -2,6 +2,7 @@ import React from "react";
 import SubpageHeader from "../components/SubpageHeader";
 import Footer from "../components/Footer";
 import ClientTestimonials from "../components/ClientTestimonials";
+import ResourcesServices from "../components/ResourcesServices";
 import GetStartedBanner from "../components/GetStartedBanner";
 import AboutCompany from "../components/AboutCompany";
 import AboutAwards from "../components/AboutAwards";
@@ -15,6 +16,7 @@ export default function About() {
         title={t("about.header.title")}
         description={t("about.header.description")}
       />
+      <ResourcesServices />
       <AboutCompany />
       <GetStartedBanner />
       <AboutAwards />

@@ -3,12 +3,14 @@ import lawyer from "../assets/lawyer-portrait-2.png";
 export default function AttorneysProfile() {
   return (
     <div className="w-full bg-beige text-gray-700">
-      <div className="w-full max-w-7xl grid grid-cols-2 py-32 mx-auto">
+      <div className="w-full w-full md:max-w-7xl grid grid-cols-2 py-32 mx-auto">
         <div>
           <img src={lawyer} className="w-96 shadow-lg mx-auto" />
         </div>
         <div>
-          <div className="text-4xl font-serif">Amal Laassel</div>
+          <div className="text-xl md:text-3xl md:text-4xl font-serif">
+            Amal Laassel
+          </div>
           <div className="font-serif text-xl mt-3 mb-7">Attorney</div>
           <div>
             Amal hails from Marrakesh, Morocco, where she lived until her
@@ -33,7 +35,7 @@ export default function AttorneysProfile() {
           </div>
         </div>
       </div>
-      <div className="w-full max-w-7xl pt-5 pb-40 mx-auto">
+      <div className="w-full w-full md:max-w-7xl pt-5 pb-40 mx-auto">
         <div className="grid grid-cols-2">
           <Quad
             title="Education"

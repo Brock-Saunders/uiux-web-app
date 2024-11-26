@@ -15,9 +15,11 @@ export default function ContactForm() {
 
   return (
     <div className="w-full bg-beige text-gray-700">
-      <div className="grid grid-cols-5 w-full max-w-7xl mx-auto py-32 px-16 gap-x-16">
+      <div className="grid grid-cols-5 w-full w-full md:max-w-7xl mx-auto py-32 px-16 gap-x-16">
         <div className="col-span-3">
-          <div className="text-4xl font-serif mb-10">Get In Touch</div>
+          <div className="text-xl md:text-3xl md:text-4xl font-serif mb-10">
+            Get In Touch
+          </div>
           {submitted ? (
             <div>
               Thank you for your message. We will get back to you as soon as

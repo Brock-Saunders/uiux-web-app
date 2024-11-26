@@ -13,7 +13,7 @@ export default function FAQs() {
 
   return (
     <div className="w-full bg-beige text-gray-700">
-      <div className="max-w-7xl w-full px-16 py-32 mx-auto">
+      <div className="w-full md:max-w-7xl w-full px-16 py-32 mx-auto">
         <div className="flex items-center">
           <div className="text-3xl w-3/5 font-serif ml-16 mr-10">
             Frequently Asked Questions

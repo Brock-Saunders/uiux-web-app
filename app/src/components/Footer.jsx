@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <div className="flex w-full bg-crimson text-white py-20">
-      <div className="max-w-7xl w-full mx-auto">
+      <div className="w-full md:max-w-7xl w-full mx-auto">
         <div className="flex justify-center">
           <img className="w-48" src={logo_white} alt="Logo" />
         </div>
@@ -21,7 +21,9 @@ export default function Footer() {
           <FooterLink href="/contact">{t("footer.contact")}</FooterLink>
         </div>
         <div className="mx-auto my-14 w-1/2 h-[0.5px] bg-white" />
-        <p className="text-center">Copyright © 2024. {t("footer.allRightsReserved")}</p>
+        <p className="text-center">
+          Copyright © 2024. {t("footer.allRightsReserved")}
+        </p>
       </div>
     </div>
   );
@@ -29,10 +31,7 @@ export default function Footer() {
 
 function FooterLink({ href, children }) {
   return (
-    <a
-      href={href}
-      className="text-sm hover:underline"
-    >
+    <a href={href} className="text-sm hover:underline">
       {children}
     </a>
   );

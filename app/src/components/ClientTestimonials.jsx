@@ -10,7 +10,7 @@ export default function ClientTestimonials() {
 
   return (
     <div className="bg-beige text-gray-700 py-24">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="w-full md:max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-serif text-center mb-12">
           {t("clientTestimonials.title")}
         </h2>
@@ -20,7 +20,9 @@ export default function ClientTestimonials() {
             className="grid grid-cols-1 md:grid-cols-7 gap-6 mb-12"
           >
             <div className="col-span-2 flex flex-col justify-center items-start">
-              <div className="text-3xl font-semibold">{testimonial.author}</div>
+              <div className="text-xl md:text-3xl font-semibold">
+                {testimonial.author}
+              </div>
               <div className="text-gray-500">
                 {new Date(testimonial.date).toLocaleDateString()}
               </div>

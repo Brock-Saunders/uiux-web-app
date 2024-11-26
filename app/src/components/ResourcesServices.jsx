@@ -5,7 +5,7 @@ import ListRow from "./ListRow";
 export default function ResourcesServices() {
   return (
     <div className="w-full bg-beige">
-      <div className="px-16 max-w-7xl w-full relative pt-32 mx-auto">
+      <div className="px-16 w-full md:max-w-7xl w-full relative pt-32 mx-auto">
         <div className="relative flex items-center">
           <div className="w-3/5 max-h-[500px] overflow-hidden shadow-xl">
             <img src={gavel} />

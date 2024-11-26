@@ -20,7 +20,7 @@ export default function ResourcesPublic() {
 
   return (
     <div className="pt-16 w-full bg-beige text-gray-700">
-      <div className="max-w-7xl w-full px-16 py-32 mx-auto">
+      <div className="w-full md:max-w-7xl w-full px-16 py-32 mx-auto">
         <div className="flex items-center">
           <div className="text-3xl w-1/5 font-serif ml-16 mr-10">Resources</div>
           <div className="w-full h-[0.5px] bg-gray-700"></div>

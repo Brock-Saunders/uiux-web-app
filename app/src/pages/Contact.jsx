@@ -8,7 +8,7 @@ export default function Contact() {
     <div>
       <SubpageHeader
         title="Contact"
-        description="Sint reprehenderit cillum duis duis esse exercitation consequat. Esse deserunt culpa nisi dolor minim ipsum veniam pariatur. Elit aliqua cupidatat sit Lorem. Magna dolor ipsum voluptate voluptate voluptate ad eu reprehenderit. Est elit amet nulla esse velit do labore proident ea commodo qui voluptate enim irure. Amet adipisicing officia fugiat nisi fugiat cillum."
+        description="At Laassel Law, we are here to answer your questions and provide the guidance you need. Whether you are seeking legal advice or have a concern about your case, our team is ready to assist you. Please don’t hesitate to reach out via the contact form below, by phone, or by visiting our office. Your peace of mind is our priority, and we look forward to helping you."
       />
       <ContactForm />
       <ContactInformationRow />

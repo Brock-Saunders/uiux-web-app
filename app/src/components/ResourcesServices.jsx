@@ -12,7 +12,7 @@ export default function ResourcesServices() {
           </div>
           <div className="absolute right-0 top-0 w-1/2 flex items-center translate-y-16 translate-x-10">
             <div className="text-6xl font-serif text-gray-700">
-              Professional Legal Services Offered by Lassel Law
+              Professional Legal Services Offered by Laassel Law
             </div>
           </div>
         </div>

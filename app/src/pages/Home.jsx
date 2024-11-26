@@ -6,6 +6,7 @@ import GetStartedBanner from "../components/GetStartedBanner";
 import ClientTestimonials from "../components/ClientTestimonials";
 import HomeHeadBanner from "../components/HomeHeadBanner";
 import ResourcesServices from "../components/ResourcesServices";
+import HomeLawyerProfile from "../components/HomeLawyerProfile";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function Home() {
     <div>
       <Navbar bgColor="bg-gradient-to-b from-neutral-200 to-beige shadow-none" />
       <HomeHeadBanner />
+      <HomeLawyerProfile/>
       <ResourcesServices />
       {/* HERE IS AN EXAMPLE OF USING TRANSLATION <p>{t("welcome")}</p> */}
       <GetStartedBanner />

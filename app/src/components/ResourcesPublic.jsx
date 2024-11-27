@@ -1,16 +1,450 @@
 import ListRow from "./ListRow";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+const manualTranslations = {
+  en: {
+    title: "Resources",
+    categories: [
+      "Local Religious Communities",
+      "K-12 & Secondary Education, Child Care",
+      "Real Estate Brokers/Agencies",
+      "Utility Companies",
+      "Cable and Internet Companies",
+      "Important Government Websites",
+      "Local Organizations",
+    ],
+    religious: {
+      mosques: "Mosques",
+      churches: "Churches",
+      hinduTemple: "Hindu Temple",
+      synagogues: "Synagogues",
+      mosquesList: [
+        {
+          name: "Islamic Society of Central Florida",
+          link: "https://www.iscf.org",
+        },
+        {
+          name: "Al-Bir Educational Center",
+          link: "https://www.albircenter.org",
+        },
+        {
+          name: "American Muslim Community Centers",
+          link: "https://www.amccenters.org",
+        },
+      ],
+      churchesList: [
+        {
+          name: "The Hope Church",
+          link: "http://thehopechurch.org/thehopechurch/",
+        },
+        {
+          name: "First Baptist of Orlando",
+          link: "http://www.firstorlando.com/",
+        },
+        {
+          name: "Trinity Downtown",
+          link: "http://church.trinitydowntown.com/",
+        },
+        {
+          name: "Spirit of Joy",
+          link: "http://www.spiritofjoy.org",
+        },
+      ],
+      hinduTempleList: [
+        {
+          name: "Hindu Society of Central Florida",
+          link: "http://www.hindutempleorlando.org",
+        },
+      ],
+      synagoguesList: [
+        {
+          name: "Chabad of South Orlando",
+          link: "http://www.jewishorlando.com/",
+        },
+        {
+          name: "Congregation of Reform Judaism",
+          link: "http://www.crjorlando.org/",
+        },
+        {
+          name: "Southwest Orlando Jewish Congregation",
+          link: "http://www.sojc.org/",
+        },
+      ],
+    },
+    education: {
+      religiousCenters: "Religious Academic Centers",
+      nonReligiousCenters: "Non-Religious Academic Centers",
+      secondaryEducation: "Secondary Education",
+      religiousList: [
+        { name: "Central Florida Christian Academy", link: "http://cfcaeagles.org/" },
+        { name: "Faith Christian Academy", link: "https://www.fcalions.org" },
+      ],
+      nonReligiousList: [
+        { name: "Lake Highland Preparatory School", link: "http://www.lhps.org/lhps/lhp/Home.aspx" },
+        { name: "Orange County Public Schools", link: "https://www.ocps.net/Pages/default.aspx" },
+      ],
+      secondaryList: [
+        { name: "Rollins College", link: "http://www.rollins.edu/" },
+        { name: "University of Central Florida", link: "http://www.ucf.edu/" },
+      ],
+    },
+    otherCategories: {
+      realEstate: [
+        { name: "Prestige Realty Professionals", link: "http://www.prestigerealtypros.com/" },
+      ],
+      utilities: [
+        { name: "Orlando Utilities Commission", link: "http://www.ouc.com/" },
+        { name: "Orange County Utilities", link: "https://utilities.ocfl.net/OCUD/" },
+      ],
+      cableInternet: [
+        { name: "AT&T", link: "https://www.att.com/" },
+        { name: "Bright House Networks", link: "https://www.brighthouse.com/" },
+      ],
+      governmentWebsites: [
+        { name: "Florida Department of Highway Safety and Motor Vehicles", link: "https://www.flhsmv.gov/" },
+        { name: "Florida Department of State", link: "https://www.sunbiz.org/" },
+      ],
+      localOrganizations: [
+        { name: "Arab American Community Center of Florida", link: "https://www.aaccflorida.org/" },
+        { name: "Moroccan American Business Alliance", link: "https://www.mabafl.com/" },
+      ],
+    },
+  },
+  es: {
+    title: "Recursos",
+    categories: [
+      "Comunidades Religiosas Locales",
+      "Educación K-12 y Secundaria, Cuidado Infantil",
+      "Agencias/Empresas Inmobiliarias",
+      "Empresas de Servicios Públicos",
+      "Empresas de Cable e Internet",
+      "Sitios Web Gubernamentales Importantes",
+      "Organizaciones Locales",
+    ],
+    religious: {
+      mosques: "Mezquitas",
+      churches: "Iglesias",
+      hinduTemple: "Templo Hindú",
+      synagogues: "Sinagogas",
+      mosquesList: [
+        {
+          name: "Sociedad Islámica de Florida Central",
+          link: "https://www.iscf.org",
+        },
+        {
+          name: "Centro Educativo Al-Bir",
+          link: "https://www.albircenter.org",
+        },
+        {
+          name: "Centros Comunitarios Musulmanes Americanos",
+          link: "https://www.amccenters.org",
+        },
+      ],
+      churchesList: [
+        {
+          name: "Iglesia de la Esperanza",
+          link: "http://thehopechurch.org/thehopechurch/",
+        },
+        {
+          name: "Primera Iglesia Bautista de Orlando",
+          link: "http://www.firstorlando.com/",
+        },
+        {
+          name: "Trinity Downtown",
+          link: "http://church.trinitydowntown.com/",
+        },
+        {
+          name: "Espíritu de Alegría",
+          link: "http://www.spiritofjoy.org",
+        },
+      ],
+      hinduTempleList: [
+        {
+          name: "Sociedad Hindú de Florida Central",
+          link: "http://www.hindutempleorlando.org",
+        },
+      ],
+      synagoguesList: [
+        {
+          name: "Jabad del Sur de Orlando",
+          link: "http://www.jewishorlando.com/",
+        },
+        {
+          name: "Congregación de Judaísmo Reformado",
+          link: "http://www.crjorlando.org/",
+        },
+        {
+          name: "Congregación Judía del Suroeste de Orlando",
+          link: "http://www.sojc.org/",
+        },
+      ],
+    },
+    education: {
+      religiousCenters: "Centros Académicos Religiosos",
+      nonReligiousCenters: "Centros Académicos No Religiosos",
+      secondaryEducation: "Educación Secundaria",
+      religiousList: [
+        { name: "Academia Cristiana de Florida Central", link: "http://cfcaeagles.org/" },
+        { name: "Academia Cristiana de la Fe", link: "https://www.fcalions.org" },
+      ],
+      nonReligiousList: [
+        { name: "Escuela Preparatoria Lake Highland", link: "http://www.lhps.org/lhps/lhp/Home.aspx" },
+        { name: "Escuelas Públicas del Condado de Orange", link: "https://www.ocps.net/Pages/default.aspx" },
+      ],
+      secondaryList: [
+        { name: "Universidad de Rollins", link: "http://www.rollins.edu/" },
+        { name: "Universidad de Florida Central", link: "http://www.ucf.edu/" },
+      ],
+    },
+    otherCategories: {
+      realEstate: [
+        { name: "Profesionales de Bienes Raíces Prestige", link: "http://www.prestigerealtypros.com/" },
+      ],
+      utilities: [
+        { name: "Comisión de Servicios Públicos de Orlando", link: "http://www.ouc.com/" },
+        { name: "Servicios Públicos del Condado de Orange", link: "https://utilities.ocfl.net/OCUD/" },
+      ],
+      cableInternet: [
+        { name: "AT&T", link: "https://www.att.com/" },
+        { name: "Redes Bright House", link: "https://www.brighthouse.com/" },
+      ],
+      governmentWebsites: [
+        { name: "Departamento de Seguridad Vial y Vehículos Motorizados de Florida", link: "https://www.flhsmv.gov/" },
+        { name: "Departamento de Estado de Florida", link: "https://www.sunbiz.org/" },
+      ],
+      localOrganizations: [
+        { name: "Centro Comunitario Árabe Americano de Florida", link: "https://www.aaccflorida.org/" },
+        { name: "Alianza Empresarial Marroquí Americana", link: "https://www.mabafl.com/" },
+      ],
+    },
+  },
+  fr: {
+    title: "Ressources",
+    categories: [
+      "Communautés religieuses locales",
+      "Éducation primaire et secondaire, garde d'enfants",
+      "courtiers/agences immobilières",
+      "Entreprises de services publics",
+      "Entreprises de câblodistribution et d'Internet",
+      "Sites Web gouvernementaux importants ",
+      "Organisations locales ",
+    ],
+    religious: {
+      mosques: "Mosquées",
+      churches: "Églises",
+      hinduTemple: "Temple hindou",
+      synagogues: "Synagogues",
+      mosquesList: [
+        {
+          name: "Société islamique de Floride centrale",
+          link: "https://www.iscf.org",
+        },
+        {
+          name: "Centre éducatif Al-Bir",
+          link: "https://www.albircenter.org",
+        },
+        {
+          name: "Centres communautaires musulmans américains",
+          link: "https://www.amccenters.org",
+        },
+      ],
+      churchesList: [
+        {
+          name: "L'Église de l'Espérance",
+          link: "http://thehopechurch.org/thehopechurch/",
+        },
+        {
+          name: "Première église baptiste d'Orlando",
+          link: "http://www.firstorlando.com/",
+        },
+        {
+          name: "Centre-ville de Trinity",
+          link: "http://church.trinitydowntown.com/",
+        },
+        {
+          name: "Esprit de joie",
+          link: "http://www.spiritofjoy.org",
+        },
+      ],
+      hinduTempleList: [
+        {
+          name: "Société hindoue de Floride centrale",
+          link: "http://www.hindutempleorlando.org",
+        },
+      ],
+      synagoguesList: [
+        {
+          name: "Chabad du sud d'Orlando",
+          link: "http://www.jewishorlando.com/",
+        },
+        {
+          name: "Congrégation du Judaïsme réformé",
+          link: "http://www.crjorlando.org/",
+        },
+        {
+          name: "Congrégation juive du sud-ouest d'Orlando",
+          link: "http://www.sojc.org/",
+        },
+      ],
+    },
+    education: {
+      religiousCenters: "Centres académiques religieux",
+      nonReligiousCenters: "Centres universitaires non religieux",
+      secondaryEducation: "Enseignement secondaire",
+      religiousList: [
+        { name: "Académie chrétienne du centre de la Floride", link: "http://cfcaeagles.org/" },
+        { name: "Académie Chrétienne Faith", link: "https://www.fcalions.org" },
+      ],
+      nonReligiousList: [
+        { name: "École préparatoire de Lake Highland", link: "http://www.lhps.org/lhps/lhp/Home.aspx" },
+        { name: "Écoles publiques du comté d'Orange", link: "https://www.ocps.net/Pages/default.aspx" },
+      ],
+      secondaryList: [
+        { name: "Collège Rollins", link: "http://www.rollins.edu/" },
+        { name: "Université de Floride centrale", link: "http://www.ucf.edu/" },
+      ],
+    },
+    otherCategories: {
+      realEstate: [
+        { name: "Professionnels de l'immobilier de prestige", link: "http://www.prestigerealtypros.com/" },
+      ],
+      utilities: [
+        { name: "Commission des services publics d'Orlando", link: "http://www.ouc.com/" },
+        { name: "Services publics du comté d'Orange", link: "https://utilities.ocfl.net/OCUD/" },
+      ],
+      cableInternet: [
+        { name: "AT&T", link: "https://www.att.com/" },
+        { name: "Bright House Networks", link: "https://www.brighthouse.com/" },
+      ],
+      governmentWebsites: [
+        { name: "Département de la sécurité routière et des véhicules à moteur de Floride", link: "https://www.flhsmv.gov/" },
+        { name: "Département d'État de Floride", link: "https://www.sunbiz.org/" },
+      ],
+      localOrganizations: [
+        { name: "Arab American Community Center of FloridaCentre communautaire arabo-américain de Floride", link: "https://www.aaccflorida.org/" },
+        { name: "Alliance des Affaires Marocaines Américaines", link: "https://www.mabafl.com/" },
+      ],
+    },
+  },
+  ar: {
+    title: "الموارد",
+    categories: [
+      "المجتمعات الدينية المحلية",
+      "التعليم من الروضة إلى الثانوية، ورعاية الأطفال",
+      "وكلاء/شركات العقارات",
+      "شركات المرافق العامة",
+      "شركات الكابل والإنترنت",
+      "المواقع الحكومية المهمة",
+      "المنظمات المحلية",
+    ],
+    religious: {
+      mosques: "المساجد",
+      churches: "الكنائس",
+      hinduTemple: "المعبد الهندوسي",
+      synagogues: "المعابد اليهودية",
+      mosquesList: [
+        {
+          name: "الجمعية الإسلامية لوسط فلوريدا",
+          link: "https://www.iscf.org",
+        },
+        {
+          name: "مركز التعليم الإسلامي البير",
+          link: "https://www.albircenter.org",
+        },
+        {
+          name: "مراكز المجتمع الإسلامي الأمريكي",
+          link: "https://www.amccenters.org",
+        },
+      ],
+      churchesList: [
+        {
+          name: "كنيسة الأمل",
+          link: "http://thehopechurch.org/thehopechurch/",
+        },
+        {
+          name: "الكنيسة المعمدانية الأولى في أورلاندو",
+          link: "http://www.firstorlando.com/",
+        },
+        {
+          name: "ترينيتي داون تاون",
+          link: "http://church.trinitydowntown.com/",
+        },
+        {
+          name: "روح الفرح",
+          link: "http://www.spiritofjoy.org",
+        },
+      ],
+      hinduTempleList: [
+        {
+          name: "الجمعية الهندوسية لوسط فلوريدا",
+          link: "http://www.hindutempleorlando.org",
+        },
+      ],
+      synagoguesList: [
+        {
+          name: "تشاباد جنوب أورلاندو",
+          link: "http://www.jewishorlando.com/",
+        },
+        {
+          name: "مجمع إصلاح اليهودية",
+          link: "http://www.crjorlando.org/",
+        },
+        {
+          name: "مجمع اليهود في جنوب غرب أورلاندو",
+          link: "http://www.sojc.org/",
+        },
+      ],
+    },
+    education: {
+      religiousCenters: "المراكز الأكاديمية الدينية",
+      nonReligiousCenters: "المراكز الأكاديمية غير الدينية",
+      secondaryEducation: "التعليم الثانوي",
+      religiousList: [
+        { name: "الأكاديمية المسيحية لوسط فلوريدا", link: "http://cfcaeagles.org/" },
+        { name: "أكاديمية الإيمان المسيحية", link: "https://www.fcalions.org" },
+      ],
+      nonReligiousList: [
+        { name: "مدرسة بحيرة هايلاند الإعدادية", link: "http://www.lhps.org/lhps/lhp/Home.aspx" },
+        { name: "مدارس مقاطعة أورانج العامة", link: "https://www.ocps.net/Pages/default.aspx" },
+      ],
+      secondaryList: [
+        { name: "كلية رولينز", link: "http://www.rollins.edu/" },
+        { name: "جامعة وسط فلوريدا", link: "http://www.ucf.edu/" },
+      ],
+    },
+    otherCategories: {
+      realEstate: [
+        { name: "بريستيج ريالتي بروفيشنالز", link: "http://www.prestigerealtypros.com/" },
+      ],
+      utilities: [
+        { name: "لجنة مرافق أورلاندو", link: "http://www.ouc.com/" },
+        { name: "مرافق مقاطعة أورانج", link: "https://utilities.ocfl.net/OCUD/" },
+      ],
+      cableInternet: [
+        { name: "AT&T", link: "https://www.att.com/" },
+        { name: "Bright House Networks", link: "https://www.brighthouse.com/" },
+      ],
+      governmentWebsites: [
+        { name: "إدارة سلامة الطرق السريعة والمركبات بفلوريدا", link: "https://www.flhsmv.gov/" },
+        { name: "وزارة ولاية فلوريدا", link: "https://www.sunbiz.org/" },
+      ],
+      localOrganizations: [
+        { name: "المركز المجتمعي العربي الأمريكي في فلوريدا", link: "https://www.aaccflorida.org/" },
+        { name: "تحالف الأعمال المغربي الأمريكي", link: "https://www.mabafl.com/" },
+      ],
+    },
+  },
+};
 
 export default function ResourcesPublic() {
-  const [activeIndexes, setActiveIndexes] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language || "en"; // Detect language or fallback to English
+  const translations = manualTranslations[currentLang] || manualTranslations.en;
+
+  const [activeIndexes, setActiveIndexes] = useState(
+    Array(translations.categories.length).fill(false)
+  );
 
   const toggleDropdown = (index) => {
     setActiveIndexes((prevIndexes) =>
@@ -18,644 +452,52 @@ export default function ResourcesPublic() {
     );
   };
 
+  const renderLinks = (links) => {
+    return (
+      <ul className="mb-6 space-y-2">
+        {links.map((item, index) => (
+          <li key={index}>
+            {item.name}:&nbsp;
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 underline hover:text-blue-700 hover:underline"
+            >
+              {item.link}
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div className="pt-16 w-full bg-beige text-gray-700">
-      <div className="w-full md:max-w-7xl w-full md:px-16 py-32 mx-auto">
+      <div className="w-full md:max-w-7xl md:px-16 py-32 mx-auto">
         <div className="flex items-center">
           <div className="text-3xl w-1/5 mx-16 md:mx-0 font-serif md:ml-16 mr-10">
-            Resources
+            {translations.title}
           </div>
           <div className="mx-16 md:mx-0 w-full h-[0.5px] bg-gray-700"></div>
         </div>
         <div className="mx-16 md:mx-0 md:ml-16 mt-16 mb-12 space-y-10">
-          <ListRow
-            question="Local Religious Communities"
-            answer={
-              <>
-                <p className="mb-4 font-semibold">Mosques:</p>
-                <ul className="mb-6 space-y-2">
-                  <li>
-                    Islamic Society of Central Florida:&nbsp;
-                    <a
-                      href="https://www.iscf.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      www.iscf.org
-                    </a>
-                  </li>
-                  <li>
-                    Al-Bir Educational Center:&nbsp;
-                    <a
-                      href="https://www.albircenter.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      www.albircenter.org
-                    </a>
-                  </li>
-                  <li>
-                    American Muslim Community Centers:&nbsp;
-                    <a
-                      href="https://www.amccenters.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      www.amccenters.org
-                    </a>
-                  </li>
-                </ul>
-
-                <p className="mb-4 font-semibold">Churches:</p>
-                <ul className="mb-6 space-y-2">
-                  <li>
-                    The Hope Church:&nbsp;
-                    <a
-                      href="http://thehopechurch.org/thehopechurch/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      thehopechurch.org
-                    </a>
-                  </li>
-                  <li>
-                    First Baptist of Orlando:&nbsp;
-                    <a
-                      href="http://www.firstorlando.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      firstorlando.com
-                    </a>
-                  </li>
-                  <li>
-                    Trinity Downtown:&nbsp;
-                    <a
-                      href="http://church.trinitydowntown.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      church.trinitydowntown.com
-                    </a>
-                  </li>
-                  <li>
-                    Spirit of Joy:&nbsp;
-                    <a
-                      href="http://www.spiritofjoy.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      spiritofjoy.org
-                    </a>
-                  </li>
-                </ul>
-
-                <p className="mb-4 font-semibold">Hindu Temple:</p>
-                <ul className="mb-6 space-y-2">
-                  <li>
-                    Hindu Society of Central Florida:&nbsp;
-                    <a
-                      href="http://www.hindutempleorlando.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      hindutempleorlando.org
-                    </a>
-                  </li>
-                </ul>
-
-                <p className="mb-4 font-semibold">Synagogues:</p>
-                <ul className="space-y-2">
-                  <li>
-                    Chabad of South Orlando:&nbsp;
-                    <a
-                      href="http://www.jewishorlando.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      jewishorlando.com
-                    </a>
-                  </li>
-                  <li>
-                    Congregation of Reform Judaism:&nbsp;
-                    <a
-                      href="http://www.crjorlando.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      crjorlando.org
-                    </a>
-                  </li>
-                  <li>
-                    Southwest Orlando Jewish Congregation:&nbsp;
-                    <a
-                      href="http://www.sojc.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      sojc.org
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[0]}
-            toggleDropdown={() => toggleDropdown(0)}
-          />
-          <ListRow
-            question="K-12 & Secondary Education, Child Care"
-            answer={
-              <>
-                <p className="mb-4 font-semibold">
-                  Religious Academic Centers:
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li>
-                    Central Florida Christian Academy:&nbsp;
-                    <a
-                      href="http://cfcaeagles.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      cfcaeagles.org
-                    </a>
-                  </li>
-                  <li>
-                    Faith Christian Academy:&nbsp;
-                    <a
-                      href="https://www.fcalions.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      fcalions.org
-                    </a>
-                  </li>
-                  <li>
-                    Jewish Academy of Orlando:&nbsp;
-                    <a
-                      href="http://www.jewishacademyorlando.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      jewishacademyorlando.org
-                    </a>
-                  </li>
-                  <li>
-                    LPS Islamic School:&nbsp;
-                    <a
-                      href="http://www.leaderspreparatoryschool.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      leaderspreparatoryschool.org
-                    </a>
-                  </li>
-                  <li>
-                    Muslim Academy of Greater Orlando:&nbsp;
-                    <a
-                      href="http://magorlando.net"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      magorlando.net
-                    </a>
-                  </li>
-                  <li>
-                    Orlando Jewish Day School:&nbsp;
-                    <a
-                      href="http://www.orlandojewishdayschool.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      orlandojewishdayschool.com
-                    </a>
-                  </li>
-                  <li>
-                    Trinity Lutheran School:&nbsp;
-                    <a
-                      href="http://school.trinitydowntown.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      school.trinitydowntown.com
-                    </a>
-                  </li>
-                </ul>
-
-                <p className="mb-4 font-semibold">
-                  Non-Religious Academic Centers:
-                </p>
-                <ul className="mb-6 space-y-2">
-                  <li>
-                    Lake Highland Preparatory School:&nbsp;
-                    <a
-                      href="http://www.lhps.org/lhps/lhp/Home.aspx"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      lhps.org
-                    </a>
-                  </li>
-                  <li>
-                    Orange County Public Schools:&nbsp;
-                    <a
-                      href="https://www.ocps.net/Pages/default.aspx"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      ocps.net
-                    </a>
-                  </li>
-                  <li>
-                    Page Private School:&nbsp;
-                    <a
-                      href="http://www.pageschool.com/new2/index.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      pageschool.com
-                    </a>
-                  </li>
-                  <li>
-                    Windermere Preparatory School:&nbsp;
-                    <a
-                      href="http://www.windermereprep.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      windermereprep.com
-                    </a>
-                  </li>
-                </ul>
-
-                <p className="mb-4 font-semibold">Secondary Education:</p>
-                <ul className="space-y-2">
-                  <li>
-                    Rollins College:&nbsp;
-                    <a
-                      href="http://www.rollins.edu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      rollins.edu
-                    </a>
-                  </li>
-                  <li>
-                    University of Central Florida:&nbsp;
-                    <a
-                      href="http://www.ucf.edu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      ucf.edu
-                    </a>
-                  </li>
-                  <li>
-                    UCEDA English School:&nbsp;
-                    <a
-                      href="http://www.ucedaschool.edu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      ucedaschool.edu
-                    </a>
-                  </li>
-                  <li>
-                    Valencia College:&nbsp;
-                    <a
-                      href="http://www.valenciacollege.edu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      valenciacollege.edu
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[1]}
-            toggleDropdown={() => toggleDropdown(1)}
-          />
-
-          <ListRow
-            question="Real Estate Brokers/Agencies"
-            answer={
-              <>
-                <ul className="space-y-2">
-                  <li>
-                    Prestige Realty Professionals:&nbsp;
-                    <a
-                      href="http://www.prestigerealtypros.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      prestigerealtypros.com
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[2]}
-            toggleDropdown={() => toggleDropdown(2)}
-          />
-          <ListRow
-            question="Utility Companies"
-            answer={
-              <>
-                <ul className="space-y-2">
-                  <li>
-                    Orlando Utilities Commission:&nbsp;
-                    <a
-                      href="http://www.ouc.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      ouc.com
-                    </a>
-                  </li>
-                  <li>
-                    Orange County Utilities:&nbsp;
-                    <a
-                      href="https://utilities.ocfl.net/OCUD/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      utilities.ocfl.net/OCUD
-                    </a>
-                  </li>
-                  <li>
-                    Kissimmee Utility Authority:&nbsp;
-                    <a
-                      href="http://www.kua.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      kua.com
-                    </a>
-                  </li>
-                  <li>
-                    Duke Energy:&nbsp;
-                    <a
-                      href="http://www.duke-energy.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      duke-energy.com
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[3]}
-            toggleDropdown={() => toggleDropdown(3)}
-          />
-          <ListRow
-            question="Cable and Internet Companies"
-            answer={
-              <>
-                <ul className="space-y-2">
-                  <li>
-                    AT&T:&nbsp;
-                    <a
-                      href="https://www.att.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      att.com
-                    </a>
-                  </li>
-                  <li>
-                    Bright House Networks:&nbsp;
-                    <a
-                      href="https://www.brighthouse.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      brighthouse.com
-                    </a>
-                  </li>
-                  <li>
-                    Comcast:&nbsp;
-                    <a
-                      href="https://www.comcast.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      comcast.com
-                    </a>
-                  </li>
-                  <li>
-                    Xfinity:&nbsp;
-                    <a
-                      href="https://www.xfinity.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      xfinity.com
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[4]}
-            toggleDropdown={() => toggleDropdown(4)}
-          />
-
-          <ListRow
-            question="Important Government Websites"
-            answer={
-              <>
-                <ul className="space-y-2">
-                  <li>
-                    Florida Department of Highway Safety and Motor
-                    Vehicles:&nbsp;
-                    <a
-                      href="https://www.flhsmv.gov/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      flhsmv.gov
-                    </a>
-                  </li>
-                  <li>
-                    Florida Department of State:&nbsp;
-                    <a
-                      href="https://www.sunbiz.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      sunbiz.org
-                    </a>
-                  </li>
-                  <li>
-                    MyFlorida:&nbsp;
-                    <a
-                      href="https://www.myflorida.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      myflorida.com
-                    </a>
-                  </li>
-                  <li>
-                    Social Security Administration:&nbsp;
-                    <a
-                      href="https://www.ssa.gov/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      ssa.gov
-                    </a>
-                  </li>
-                  <li>
-                    USA.gov:&nbsp;
-                    <a
-                      href="https://www.usa.gov/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      usa.gov
-                    </a>
-                  </li>
-                  <li>
-                    United States Citizenship and Immigration Services
-                    (USCIS):&nbsp;
-                    <a
-                      href="https://www.uscis.gov/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      uscis.gov
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[5]}
-            toggleDropdown={() => toggleDropdown(5)}
-          />
-
-          <ListRow
-            question="Local Organizations"
-            answer={
-              <>
-                <ul className="space-y-2">
-                  <li>
-                    Arab American Community Center of Florida:&nbsp;
-                    <a
-                      href="https://www.aaccflorida.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      aaccflorida.org
-                    </a>
-                  </li>
-                  <li>
-                    Moroccan American Business Alliance:&nbsp;
-                    <a
-                      href="https://www.mabafl.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      mabafl.com
-                    </a>
-                  </li>
-                  <li>
-                    Moroccan American Chamber of Commerce:&nbsp;
-                    <a
-                      href="https://www.maccflorida.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      maccflorida.com
-                    </a>
-                  </li>
-                  <li>
-                    Orlando Regional Chamber of Commerce:&nbsp;
-                    <a
-                      href="https://www.orlando.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      orlando.org
-                    </a>
-                  </li>
-                  <li>
-                    Orlando Rotary Club:&nbsp;
-                    <a
-                      href="https://rotaryorlando.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      rotaryorlando.org
-                    </a>
-                  </li>
-                  <li>
-                    The Roth Family Jewish Community Center of Greater
-                    Orlando:&nbsp;
-                    <a
-                      href="https://orlandojcc.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline hover:text-blue-700 hover:underline"
-                    >
-                      orlandojcc.org
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            isOpen={activeIndexes[6]}
-            toggleDropdown={() => toggleDropdown(6)}
-          />
+          {translations.categories.map((category, index) => (
+            <ListRow
+              key={index}
+              question={category}
+              answer={
+                index === 0
+                  ? renderLinks(translations.religious.mosquesList)
+                  : renderLinks(translations.otherCategories.realEstate) // Replace based on the index
+              }
+              isOpen={activeIndexes[index]}
+              toggleDropdown={() => toggleDropdown(index)}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 }
+ 

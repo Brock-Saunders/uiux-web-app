@@ -17,8 +17,6 @@ Web Application for UI UX Class: Fall of 2024.
 Translation for the website leverages i18nexus. In order to configure strings
 for translation you must have access to the project on [i18nexus](https://app.i18nexus.com/).
 
-In order to change the language for the website you must add in the `lng` query string.
+Unfortunately, due to the limited number of strings available with the free tier of i18nexus some of the translation had to be managed manually in the react components. This doesn't cause any issues to performance. 
 
-```
-http://127.0.0.1:5173/?lng=es
-```
+Also, due the limitations of i18nexus and its google translate integration some strings don't translate properly in certain languages and will revert back to English.

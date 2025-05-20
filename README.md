@@ -1,5 +1,9 @@
 # uiux-web-app
-Web Application for UI UX Class: Fall of 2024.
+A web application built for our UI/UX class (Fall 2024) to redesign and modernize a client website for an immigration law firm.
+
+## Live Demo
+
+main.drkkfxnvxglxe.amplifyapp.com
 
 ## Prequisites
 [Node.js](https://nodejs.org/en/download/package-manager)

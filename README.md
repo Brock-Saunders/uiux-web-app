@@ -3,7 +3,7 @@ A web application built for our UI/UX class (Fall 2024) to redesign and moderniz
 
 ## Live Demo
 
-main.drkkfxnvxglxe.amplifyapp.com
+[Demo](https://main.drkkfxnvxglxe.amplifyapp.com)
 
 ## Prequisites
 [Node.js](https://nodejs.org/en/download/package-manager)

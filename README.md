@@ -24,3 +24,4 @@ for translation you must have access to the project on [i18nexus](https://app.i1
 Unfortunately, due to the limited number of strings available with the free tier of i18nexus some of the translation had to be managed manually in the react components. This doesn't cause any issues to performance. 
 
 Also, due the limitations of i18nexus and its google translate integration some strings don't translate properly in certain languages and will revert back to English.
+
